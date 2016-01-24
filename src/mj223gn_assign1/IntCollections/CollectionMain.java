@@ -1,5 +1,7 @@
 package mj223gn_assign1.IntCollections;
 
+import java.util.Iterator;
+
 /**
  * Created by Michael on 2016-01-19.
  */
@@ -13,7 +15,7 @@ public class CollectionMain {
         ArrayIntList list = new ArrayIntList();
 
         System.out.println("Is the list empty?: " +list.isEmpty());
-
+        System.out.println("We add some numbers");
         list.add(17);
         list.add(55);
         list.add(100);
@@ -26,15 +28,18 @@ public class CollectionMain {
         System.out.println("Is the list empty?: " +list.isEmpty());
         System.out.println("The size of the list is " +list.size() + " elements.");
 
+        System.out.println("Add one more item to check that the list resize's");
         list.add(99);
 
         System.out.println("The size of the list is " +list.size() + " elements.");
         System.out.println(list.toString());
 
-        list.addAt(10, 2);
+        System.out.println("We add a integer 10 at index 12");
+        list.addAt(10, 12);
 
         System.out.println(list.toString());
 
+        System.out.println("Then we remove the integer at index 1");
         list.remove(1);
 
         System.out.println(list.toString());
@@ -49,9 +54,11 @@ public class CollectionMain {
         System.out.println();
 
         ArrayIntStack stack = new ArrayIntStack();
-        stack.pop();
+
+        System.out.println("If we peek at an empty stack we dont return anything");
         stack.peek();
 
+        System.out.println("We add some integers to the stack");
         stack.push(5);
         stack.push(100);
         stack.push(56);
@@ -67,6 +74,11 @@ public class CollectionMain {
 
         System.out.println();
         System.out.println("The stack contains " +stack.size() +" elements");
+
+        System.out.println("We iterate through our stack");
+        Iterator<Integer> itr = stack.iterator();
+        while(itr.hasNext())
+            System.out.println(itr.next());
 
         System.out.println("We pop out the last element, the element is: " +stack.pop());
         System.out.println("We pop out the last element, the element is: " +stack.pop());
