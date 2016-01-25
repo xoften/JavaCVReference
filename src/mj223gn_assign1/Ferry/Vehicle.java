@@ -5,22 +5,12 @@ import java.util.ArrayList;
 /**
  * Created by Michael on 2016-01-20.
  */
-public class Vehicle {
+public abstract class Vehicle {
 
     private String vehicleType;
     private int numberOfPassengers;
     private int maxNumberOfPassengers;
     private ArrayList<Passenger> passengers;
-
-
-    public Vehicle() {
-        vehicleType = "";
-        numberOfPassengers = 0;
-        maxNumberOfPassengers = 1;
-
-        ArrayList<Passenger> ps = new ArrayList<Passenger>();
-        passengers = ps;
-    }
 
     public void setVehicleType(String type) {
         vehicleType = type;
@@ -48,8 +38,8 @@ public class Vehicle {
         }
     }
 
-    public int getNumberOfPassengers() {
-        return numberOfPassengers;
+    public ArrayList<Passenger> getPassengers() {
+        return passengers;
     }
 
 }

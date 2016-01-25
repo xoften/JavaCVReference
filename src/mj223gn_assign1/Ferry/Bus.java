@@ -5,10 +5,11 @@ package mj223gn_assign1.Ferry;
  */
 public class Bus extends Vehicle {
 
+    private final int MAX_PASSENGERS = 20;
 
     public Bus(int n){
         super.setVehicleType("Bus");
-        super.setMaxNumberOfPassengers(20);
+        super.setMaxNumberOfPassengers(MAX_PASSENGERS);
         super.setNumberOfPassengers(n);
 
     }

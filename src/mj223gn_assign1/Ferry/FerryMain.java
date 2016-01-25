@@ -9,6 +9,17 @@ public class FerryMain {
 
     public static void main(String[] args) {
 
+        Ferry Silja = new Ferry();
+
+        for (int i = 0; i < 5; i++)
+            Silja.embark(new Bicycle());
+
+        System.out.println(Silja.countVehicleSpace());
+
+        Silja.embark(new Bicycle());
+
+        System.out.println(Silja.countVehicleSpace());
+
         Ferry StenaLine = new Ferry();
 
         StenaLine.embark(new Passenger());
@@ -38,7 +49,7 @@ public class FerryMain {
         Iterator<Vehicle> itr = StenaLine.iterator();
         while (itr.hasNext()) {
             Vehicle next = itr.next();
-            System.out.println("" + next.getVehicleType() + " with: " + next.getNumberOfPassengers() + " number of passengers.");
+            System.out.println("" + next.getVehicleType() + " with: " + next.getPassengers().size() + " number of passengers.");
         }
 
         StenaLine.disembark();
