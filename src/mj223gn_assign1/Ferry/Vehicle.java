@@ -10,7 +10,6 @@ public class Vehicle {
     private String vehicleType;
     private int numberOfPassengers;
     private int maxNumberOfPassengers;
-    private int spaceNeeded;
     private ArrayList<Passenger> passengers;
 
 
@@ -18,7 +17,6 @@ public class Vehicle {
         vehicleType = "";
         numberOfPassengers = 0;
         maxNumberOfPassengers = 1;
-        spaceNeeded = 1;
 
         ArrayList<Passenger> ps = new ArrayList<Passenger>();
         passengers = ps;
@@ -30,14 +28,6 @@ public class Vehicle {
 
     public String getVehicleType() {
         return vehicleType;
-    }
-
-    public void setSpaceNeeded(int n) {
-        spaceNeeded = n;
-    }
-
-    public int getSpaceNeeded() {
-        return spaceNeeded;
     }
 
     public void setMaxNumberOfPassengers(int n) {

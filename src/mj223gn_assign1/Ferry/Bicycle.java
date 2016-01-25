@@ -5,14 +5,13 @@ package mj223gn_assign1.Ferry;
  */
 public class Bicycle extends Vehicle {
 
-    private final int SPACE_NEEDED = 1;
     private final int MAX_NUMBER_OF_PASSENGERS = 1;
 
 public Bicycle(){
     super.setVehicleType("Bicycle");
     super.setMaxNumberOfPassengers(MAX_NUMBER_OF_PASSENGERS);
     super.setNumberOfPassengers(1);
-    super.setSpaceNeeded(SPACE_NEEDED);
+
 
 
 }

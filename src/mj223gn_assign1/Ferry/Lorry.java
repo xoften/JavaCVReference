@@ -9,7 +9,7 @@ public class Lorry extends Vehicle {
         super.setVehicleType("Lorry");
         super.setMaxNumberOfPassengers(2);
         super.setNumberOfPassengers(n);
-        super.setSpaceNeeded(40);
+
 
 
     }
