@@ -9,16 +9,6 @@ public class FerryMain {
 
     public static void main(String[] args) {
 
-        Ferry Silja = new Ferry();
-
-        for (int i = 0; i < 5; i++)
-            Silja.embark(new Bicycle());
-
-        System.out.println(Silja.countVehicleSpace());
-
-        Silja.embark(new Bicycle());
-
-        System.out.println(Silja.countVehicleSpace());
 
         Ferry StenaLine = new Ferry();
 

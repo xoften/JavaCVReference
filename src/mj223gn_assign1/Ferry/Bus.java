@@ -7,7 +7,8 @@ public class Bus extends Vehicle {
 
     private final int MAX_PASSENGERS = 20;
 
-    public Bus(int n){
+    public Bus(int n) {
+
         super.setVehicleType("Bus");
         super.setMaxNumberOfPassengers(MAX_PASSENGERS);
         super.setNumberOfPassengers(n);

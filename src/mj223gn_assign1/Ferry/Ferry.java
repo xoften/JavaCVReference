@@ -27,11 +27,11 @@ public class Ferry implements FerryInterface {
     public Ferry() {
         spaceTakenOnFerry = 0;
 
-        ArrayList<Passenger> ps = new ArrayList<>();
-        passengers = ps;
+        ArrayList<Passenger> passenger = new ArrayList<>();
+        passengers = passenger;
 
-        ArrayList<Vehicle> vh = new ArrayList<>();
-        vehiclesOnFerry = vh;
+        ArrayList<Vehicle> vehicles = new ArrayList<>();
+        vehiclesOnFerry = vehicles;
     }
 
     @Override
@@ -42,7 +42,7 @@ public class Ferry implements FerryInterface {
 
     @Override
     public int countVehicleSpace() {
-        double space = (double)spaceTakenOnFerry/5;
+        double space = (double) spaceTakenOnFerry / 5;
         return (int) Math.ceil(space);
     }
 

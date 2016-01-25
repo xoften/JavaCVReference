@@ -10,7 +10,8 @@ public abstract class Vehicle {
     private String vehicleType;
     private int numberOfPassengers;
     private int maxNumberOfPassengers;
-    private ArrayList<Passenger> passengers;
+    private ArrayList<Passenger> passengers = new ArrayList<>();
+
 
     public void setVehicleType(String type) {
         vehicleType = type;
