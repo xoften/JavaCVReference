@@ -14,7 +14,7 @@ public class Vehicle {
     private ArrayList<Passenger> passengers;
 
 
-    public Vehicle(){
+    public Vehicle() {
         vehicleType = "";
         numberOfPassengers = 0;
         maxNumberOfPassengers = 1;
@@ -23,35 +23,43 @@ public class Vehicle {
         ArrayList<Passenger> ps = new ArrayList<Passenger>();
         passengers = ps;
     }
-    public void setVehicleType(String type){
+
+    public void setVehicleType(String type) {
         vehicleType = type;
     }
-    public String getVehicleType(){
+
+    public String getVehicleType() {
         return vehicleType;
     }
-    public void setSpaceNeeded(int n){
+
+    public void setSpaceNeeded(int n) {
         spaceNeeded = n;
     }
-    public int getSpaceNeeded(){
+
+    public int getSpaceNeeded() {
         return spaceNeeded;
     }
-    public void setMaxNumberOfPassengers(int n){
+
+    public void setMaxNumberOfPassengers(int n) {
         maxNumberOfPassengers = n;
     }
-    public int getMaxNumberOfPassengers(){
+
+    public int getMaxNumberOfPassengers() {
         return maxNumberOfPassengers;
     }
-    public void setNumberOfPassengers(int n){
+
+    public void setNumberOfPassengers(int n) {
         for (int i = 0; i < n; i++) {
             if (passengers.size() < maxNumberOfPassengers) {
                 passengers.add(new Passenger());
                 numberOfPassengers++;
-            }
-            else
+            } else
                 System.err.println("Cant add more Passengers to this " + vehicleType);
         }
     }
-    public int getNumberOfPassengers(){
+
+    public int getNumberOfPassengers() {
         return numberOfPassengers;
     }
+
 }

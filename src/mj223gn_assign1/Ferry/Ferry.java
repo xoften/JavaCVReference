@@ -13,10 +13,14 @@ public class Ferry implements FerryInterface {
     private int numberOfPassengers;
     private final int MAX_PASSENGERS = 200;
     private final int MAX_SPACE = 200;
+    private final int MONEY_LORRY = 300;
+    private final int MONEY_BUS = 200;
+    private final int MONEY_CAR = 100;
+    private final int MONEY_BICYCLE = 40;
     private ArrayList<Passenger> passengersWithNoVehicle;
     private ArrayList<Vehicle> vehiclesOnFerry;
 
-    public Ferry(){
+    public Ferry() {
         spaceTakenOnFerry = 0;
         numberOfPassengers = 0;
 
@@ -26,6 +30,7 @@ public class Ferry implements FerryInterface {
         ArrayList<Vehicle> vh = new ArrayList<Vehicle>();
         vehiclesOnFerry = vh;
     }
+
     @Override
     public int countPassengers() {
 
@@ -45,51 +50,49 @@ public class Ferry implements FerryInterface {
 
     @Override
     public Iterator<Vehicle> iterator() {
-            return new VehicleIterator(vehiclesOnFerry, vehiclesOnFerry.size());
+        return new VehicleIterator(vehiclesOnFerry, vehiclesOnFerry.size());
     }
 
     @Override
     public void embark(Vehicle v) {
-          if(!vehiclesOnFerry.contains(v))
-           if(this.hasSpaceFor(v)) {
-               vehiclesOnFerry.add(v);
-               numberOfPassengers += v.getNumberOfPassengers();
-               spaceTakenOnFerry += v.getSpaceNeeded();
-               if(v.getVehicleType() == "Bicycle")
-                   moneyEarned += 40;
-               else if(v.getVehicleType() == "Car")
-                   moneyEarned += 100 + (15*v.getNumberOfPassengers());
-               else if(v.getVehicleType() == "Bus")
-                   moneyEarned += 200 + (10*v.getNumberOfPassengers());
-               else if(v.getVehicleType() == "Lorry")
-                   moneyEarned += 300 + (15*v.getNumberOfPassengers());
-           }
-            else
-               System.out.println("There is no space for this " +v.getVehicleType());
+        if (!vehiclesOnFerry.contains(v))
+            if (this.hasSpaceFor(v)) {
+                vehiclesOnFerry.add(v);
+                numberOfPassengers += v.getNumberOfPassengers();
+                spaceTakenOnFerry += v.getSpaceNeeded();
+                if (v.getVehicleType().equals("Bicycle"))
+                    moneyEarned += MONEY_BICYCLE;
+                else if (v.getVehicleType().equals("Car"))
+                    moneyEarned += MONEY_CAR + (15 * v.getNumberOfPassengers());
+                else if (v.getVehicleType().equals("Bus"))
+                    moneyEarned += MONEY_BUS + (10 * v.getNumberOfPassengers());
+                else if (v.getVehicleType().equals("Lorry"))
+                    moneyEarned += MONEY_LORRY + (15 * v.getNumberOfPassengers());
+            } else
+                System.out.println("There is no space for this " + v.getVehicleType());
         else
-              System.out.println("You cant embark the same " +v.getVehicleType());
+            System.out.println("You cant embark the same " + v.getVehicleType());
     }
 
     @Override
     public void embark(Passenger p) {
-        if(hasRoomFor(p)) {
+        if (hasRoomFor(p)) {
             passengersWithNoVehicle.add(p);
             numberOfPassengers++;
             moneyEarned += 20;
-        }
-        else
+        } else
             System.out.println("There is no room for this passenger");
     }
 
     @Override
     public void disembark() {
-        for(int i = passengersWithNoVehicle.size()-1; i >= 0 ; i--){
-            System.out.println(passengersWithNoVehicle.get(i) + " disembarked from ferry");
+        for (int i = passengersWithNoVehicle.size() - 1; i >= 0; i--) {
+            System.out.println("Passenger disembarked from ferry");
             passengersWithNoVehicle.remove(i);
             numberOfPassengers--;
 
         }
-        for(int i = vehiclesOnFerry.size()-1; i >= 0 ; i--){
+        for (int i = vehiclesOnFerry.size() - 1; i >= 0; i--) {
             System.out.println(vehiclesOnFerry.get(i).getVehicleType() + " disembarked from ferry");
             numberOfPassengers -= vehiclesOnFerry.get(i).getNumberOfPassengers();
             spaceTakenOnFerry -= vehiclesOnFerry.get(i).getSpaceNeeded();
@@ -101,7 +104,7 @@ public class Ferry implements FerryInterface {
 
     @Override
     public boolean hasSpaceFor(Vehicle v) {
-        if((spaceTakenOnFerry + v.getSpaceNeeded()) < MAX_SPACE  && (numberOfPassengers + v.getNumberOfPassengers()) < MAX_PASSENGERS)
+        if ((spaceTakenOnFerry + v.getSpaceNeeded()) < MAX_SPACE && (numberOfPassengers + v.getNumberOfPassengers()) < MAX_PASSENGERS)
             return true;
         else
             return false;
@@ -109,7 +112,7 @@ public class Ferry implements FerryInterface {
 
     @Override
     public boolean hasRoomFor(Passenger p) {
-        if(passengersWithNoVehicle.size() < MAX_PASSENGERS)
+        if (passengersWithNoVehicle.size() < MAX_PASSENGERS)
             return true;
         else
             return false;

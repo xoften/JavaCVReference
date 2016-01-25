@@ -7,7 +7,7 @@ import java.util.Iterator;
  */
 public class FerryMain {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
         Ferry StenaLine = new Ferry();
 
@@ -36,7 +36,7 @@ public class FerryMain {
         System.out.println(StenaLine.countVehicleSpace());
 
         Iterator<Vehicle> itr = StenaLine.iterator();
-        while(itr.hasNext()){
+        while (itr.hasNext()) {
             Vehicle next = itr.next();
             System.out.println("" + next.getVehicleType() + " with: " + next.getNumberOfPassengers() + " number of passengers.");
         }
@@ -47,9 +47,14 @@ public class FerryMain {
         System.out.println(StenaLine.countPassengers());
         System.out.println(StenaLine.countVehicleSpace());
 
+        for (int i = 0; i < 210; i++) {
+            StenaLine.embark(new Passenger());
+        }
+        System.out.println(StenaLine.countMoney());
+        System.out.println(StenaLine.countPassengers());
+        System.out.println(StenaLine.countVehicleSpace());
 
-
-
+        StenaLine.embark(new Car(3));
     }
 
 
