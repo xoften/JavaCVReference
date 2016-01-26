@@ -8,6 +8,7 @@ import java.util.Iterator;
  */
 public class Ferry implements FerryInterface {
 
+    private String ferryName;
     private int moneyEarned;
     private int spaceTakenOnFerry;
     private final int MAX_PASSENGERS = 200;
@@ -24,7 +25,9 @@ public class Ferry implements FerryInterface {
     private ArrayList<Passenger> passengers;
     private ArrayList<Vehicle> vehiclesOnFerry;
 
-    public Ferry() {
+    public Ferry(String name) {
+        ferryName = name;
+
         spaceTakenOnFerry = 0;
 
         ArrayList<Passenger> passenger = new ArrayList<>();
@@ -53,7 +56,7 @@ public class Ferry implements FerryInterface {
 
     @Override
     public Iterator<Vehicle> iterator() {
-        return new VehicleIterator(vehiclesOnFerry, vehiclesOnFerry.size());
+        return new VehicleIterator(vehiclesOnFerry);
     }
 
     @Override
@@ -98,6 +101,13 @@ public class Ferry implements FerryInterface {
     public boolean hasRoomFor(Passenger p) {
         return (passengers.size() < MAX_PASSENGERS);
 
+    }
+    public String toString(){
+        String ferry = ferryName + " has ";
+        String passengers = countPassengers() + " passengers and ";
+        String vehicles = vehiclesOnFerry.size() + " number of vehicles on board " +countVehicleSpace() +"/40 space taken, ";
+        String money = ferryName + " has also " + moneyEarned + " money earned";
+        return ferry + passengers + vehicles + money;
     }
 
     private int spaceTaken(Vehicle v) {

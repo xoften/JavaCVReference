@@ -12,9 +12,9 @@ public class VehicleIterator implements Iterator<Vehicle> {
     private int next;
     private final int SIZE;
 
-    public VehicleIterator(ArrayList<Vehicle> list, int size){
+    public VehicleIterator(ArrayList<Vehicle> list){
         vehicles = list;
-        SIZE = size;
+        SIZE = vehicles.size();
     }
     @Override
     public boolean hasNext() {
