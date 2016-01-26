@@ -33,6 +33,11 @@ public class SumMain {
             final long endTime2 = System.nanoTime();
             System.out.println("time = " + (endTime2 - startTime2)/10000);
 
+            /**
+             * Both the methods is 4 lines of code but the recursive is slower because that method as to go down to base
+             * case and the calculate the sum. While the recursive is "less" code and maybe easier to se what happens,
+             * it is slower so i think the recursive method here is worse then the iterative.
+             */
 
         }
     }
