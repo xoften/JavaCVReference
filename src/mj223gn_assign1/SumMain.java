@@ -15,40 +15,61 @@ public class SumMain {
 
         //Take an long from them user and sets it to n;
         long n = input.nextLong();
+
         if (n < 0)
             System.out.println("You did not insert a positive integer");
         else {
             //We take time on the methods
             final long startTime1 = System.nanoTime();
+            //Method one with the 1 to n/2 + (n/2)+1 to n.
+            System.out.println("The sum of the numbers 1+2+3...+n = " + sum(1,n));
 
-            //this method is the recursive
-            System.out.println("The sum of the numbers 1+2+3...+n = " + sum(n));
             final long endTime1 = System.nanoTime();
             System.out.println("time = " + (endTime1 - startTime1)/10000);
 
+
             final long startTime2 = System.nanoTime();
 
-            //this method is the iterative
-            System.out.println("The sum of the numbers 1+2+3...+n = " + sumIterator(n));
+            //Method two that Jonas used in the slides
+            System.out.println("The sum of the numbers 1+2+3...+n = " + sum2(n));
             final long endTime2 = System.nanoTime();
             System.out.println("time = " + (endTime2 - startTime2)/10000);
 
+            final long startTime3 = System.nanoTime();
+
+            //Method three is iterative
+            System.out.println("The sum of the numbers 1+2+3...+n = " + sumIterator(n));
+            final long endTime3 = System.nanoTime();
+            System.out.println("time = " + (endTime3 - startTime3)/10000);
+
             /**
-             * Both the methods is 4 lines of code but the recursive is slower because that method as to go down to base
-             * case and the calculate the sum. While the recursive is "less" code and maybe easier to se what happens,
-             * it is slower so i think the recursive method here is worse then the iterative.
+             * We se by the times on the methods that the first one is much slower then both the others. that's because
+             * that method has to go many more steps then the others. while the iterative goes from 1 to n directly by
+             * adding them one by one, the second recursive has to go down from n to base case and then up to n again.
+             *
+             * even worse is the method we use that goes from 1 to n/2 + n/2+1 to n. this method split up like a tree and
+             * it makes even more calculations then the recursive method jonas showed us.
              */
+
 
         }
     }
+    private static long sum(long k, long n){
+        if(n == k)
+            return 1;
+        else
+            return sum(k,(n+k)/2) + sum(((n+k)/2)+1,n) + (k+n)/2;
 
-    public static long sum(long n){
+
+    }
+
+    public static long sum2(long n){
         //Base case
         if(n == 1)
             return 1;
         //else we use sum again but with a smaller number
         else
-            return sum(n-1) + n;
+            return sum2(n-1) + n;
 
     }
     public static long sumIterator(long n){
