@@ -43,12 +43,10 @@ public class SumMain {
             System.out.println("time = " + (endTime3 - startTime3)/10000);
 
             /**
-             * We se by the times on the methods that the first one is much slower then both the others. that's because
-             * that method has to go many more steps then the others. while the iterative goes from 1 to n directly by
-             * adding them one by one, the second recursive has to go down from n to base case and then up to n again.
+             * We see that our first method with 1 to n/2 + n/2+1 to n can calculate larger numbers then the other two
+             * with not getting a stack overflow. but for smaller numbers it is slower. so for larger numbers we should
+             * use this but with smaller we should use a iterative.
              *
-             * even worse is the method we use that goes from 1 to n/2 + n/2+1 to n. this method split up like a tree and
-             * it makes even more calculations then the recursive method jonas showed us.
              */
 
 
@@ -56,14 +54,14 @@ public class SumMain {
     }
     private static long sum(long k, long n){
         if(n == k)
-            return 1;
+            return n;
         else
-            return sum(k,(n+k)/2) + sum(((n+k)/2)+1,n) + (k+n)/2;
+            return sum(k,(n+k)/2) + sum(((n+k)/2)+1,n);
 
 
     }
 
-    public static long sum2(long n){
+    private static long sum2(long n){
         //Base case
         if(n == 1)
             return 1;
@@ -72,7 +70,7 @@ public class SumMain {
             return sum2(n-1) + n;
 
     }
-    public static long sumIterator(long n){
+    private static long sumIterator(long n){
 
         int sum = 0;
         for(int i = 1; i <= n; i++){
