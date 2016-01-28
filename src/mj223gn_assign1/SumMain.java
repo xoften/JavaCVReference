@@ -49,7 +49,7 @@ public class SumMain {
              *
              */
 
-
+            input.close();
         }
     }
     private static long sum(long k, long n){
