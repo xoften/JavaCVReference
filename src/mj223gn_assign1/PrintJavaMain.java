@@ -18,10 +18,8 @@ public class PrintJavaMain {
         } catch (FileNotFoundException e) {
             System.out.println("File not found!");
         } catch (IOException e) {
-            System.out.println("fel");
+
         }
-
-
     }
 
     private static int indent = 1;

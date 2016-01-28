@@ -5,8 +5,12 @@ package mj223gn_assign1.Ferry;
  */
 public class Passenger {
 
-    public Passenger(){
+    private String passenger;
+    private static int passengerCode = 1;
 
+    public Passenger(){
+        passenger = "Passenger " + passengerCode;
+        passengerCode++;
     }
 
 }

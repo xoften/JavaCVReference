@@ -1,6 +1,7 @@
 package mj223gn_assign1;
 
 import java.util.Arrays;
+import java.util.Scanner;
 
 /**
  * Created by Michael Johansson(mj223gn) on 2016-01-27.
@@ -8,7 +9,15 @@ import java.util.Arrays;
 public class PascalMain {
 
     public static void main(String[] args) {
-        System.out.println(Arrays.toString(PascalTriangle(6)));
+        System.out.print("Insert an positive integer for the row you want to check: ");
+
+        Scanner input = new Scanner(System.in);
+        int number = input.nextInt();
+        if(number < 0)
+            System.out.println("You did not enter a POSITIVE integer!");
+        else
+            System.out.println(Arrays.toString(PascalTriangle(number)));
+
     }
     public static int[] PascalTriangle(int n)
     {   //pascals triangle starts at row zero.
