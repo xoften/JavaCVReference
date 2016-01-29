@@ -18,6 +18,10 @@ import javafx.stage.Stage;
  */
 public class ColorDisplay extends Application {
 
+    private int redColor;
+    private int greenColor;
+    private int blueColor;
+    private String hexValue;
 
     public static void main(String[] args) {
         launch(args);
@@ -45,14 +49,9 @@ public class ColorDisplay extends Application {
         TextField blueNumber = new TextField();
         GridPane.setConstraints(blueNumber,2,1);
 
-        int redColor = Integer.valueOf(redNumber.getText());
-        int greenColor = Integer.valueOf(greenNumber.getText());
-        int blueColor = Integer.valueOf(blueNumber.getText());
-
         //vbox for the top box
         VBox display = new VBox();
         display.setPadding(new Insets(5,5,5,5));
-        display.setStyle("-fx-background-color: rgb(redColor,,blue)");
         display.setMinSize(400,100);
         display.getChildren().add(colorDisplay);
         display.setAlignment(Pos.CENTER);
@@ -66,7 +65,14 @@ public class ColorDisplay extends Application {
         grid.getChildren().addAll(red,green,blue,redNumber,greenNumber,blueNumber);
 
         Button displayButton = new Button("Display Color");
-
+        displayButton.setOnAction(e -> {
+            redColor = Integer.valueOf(redNumber.getText());
+            greenColor = Integer.valueOf(greenNumber.getText());
+            blueColor = Integer.valueOf(blueNumber.getText());
+            if(valueInsideBounds(redColor,greenColor,blueColor)) {
+                hexValue = String.format("#%02x%02x%02x", redColor, greenColor, blueColor);
+                display.setStyle("-fx-background-color: " + hexValue);
+            }});
         //vbox for the button
         VBox button = new VBox();
         button.setPadding(new Insets(5,5,5,5));
@@ -85,5 +91,16 @@ public class ColorDisplay extends Application {
         Scene scene = new Scene(root, 500, 400);
         primaryStage.setScene(scene);
         primaryStage.show();
+    }
+    private boolean valueInsideBounds(int r, int g, int b){
+        int valuesInsideBounds = 0;
+        if(r <= 255 && r > 0)
+            valuesInsideBounds++;
+        if(g <= 255 && g > 0)
+            valuesInsideBounds++;
+        if(b <= 255 && b > 0)
+            valuesInsideBounds++;
+
+        return valuesInsideBounds == 3;
     }
 }
