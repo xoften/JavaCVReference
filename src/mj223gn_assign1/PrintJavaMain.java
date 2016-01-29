@@ -10,11 +10,11 @@ public class PrintJavaMain {
 
     public static void main(String[] args) {
         try {
-            File startDirectory = new File("C:\\Users\\Michael\\IdeaProjects\\1DV507\\src");
-            if (startDirectory.exists())
+            File startDirectory = new File("C:\\Users\\Michaels\\IdeaProjects\\1DV507\\src");
+            //if (startDirectory.exists())
                 printAllJavaFiles(startDirectory);
-            else
-                System.out.println("The directory does not exist.");
+          //  else
+        //        System.out.println("The directory does not exist.");
         } catch (FileNotFoundException e) {
             System.out.println("File not found!");
         } catch (IOException e) {

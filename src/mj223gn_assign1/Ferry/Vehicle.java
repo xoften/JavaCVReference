@@ -12,7 +12,10 @@ public abstract class Vehicle {
     private int maxNumberOfPassengers;
     private ArrayList<Passenger> passengers = new ArrayList<>();
 
-
+    /**
+     * Method to set what type a vehicle this is
+     * @param type
+     */
     public void setVehicleType(String type) {
         vehicleType = type;
     }
