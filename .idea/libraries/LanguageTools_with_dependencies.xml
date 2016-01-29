@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="LanguageTools-with-dependencies">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../LanguageTools-with-dependencies.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
