@@ -1,4 +1,4 @@
-package mj223gn_assign1;
+package mj223gn_assign1.JavaFX;
 
 import javafx.application.Application;
 import javafx.geometry.Insets;
@@ -23,13 +23,16 @@ public class ColorDisplay extends Application {
     private int blueColor;
     private String hexValue;
 
+
     public static void main(String[] args) {
         launch(args);
     }
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-
+        //Different text objects
+        Text error = new Text("");
+        error.setStyle("-fx-font-size: 30");
         Text colorDisplay = new Text("Color Display");
         colorDisplay.setStyle("-fx-font-size: 40");
         Label red = new Label("Red");
@@ -42,6 +45,7 @@ public class ColorDisplay extends Application {
         blue.setStyle("-fx-font-size: 24");
         GridPane.setConstraints(blue, 2, 0);
 
+        //TextField for where to input RGB numbers
         TextField redNumber = new TextField();
         GridPane.setConstraints(redNumber,0,1);
         TextField greenNumber = new TextField();
@@ -58,12 +62,13 @@ public class ColorDisplay extends Application {
 
         //gridpane for the text and
         GridPane grid = new GridPane();
-        grid.setMinSize(400,200);
+        grid.setMinSize(400,150);
         grid.setPadding(new Insets(10,10,10,10));
         grid.setVgap(8);
         grid.setHgap(10);
         grid.getChildren().addAll(red,green,blue,redNumber,greenNumber,blueNumber);
 
+        //Button with actions
         Button displayButton = new Button("Display Color");
         displayButton.setOnAction(e -> {
             redColor = Integer.valueOf(redNumber.getText());
@@ -72,18 +77,28 @@ public class ColorDisplay extends Application {
             if(valueInsideBounds(redColor,greenColor,blueColor)) {
                 hexValue = String.format("#%02x%02x%02x", redColor, greenColor, blueColor);
                 display.setStyle("-fx-background-color: " + hexValue);
-            }});
+                error.setText("");
+            }
+            else
+                error.setText("Invalid input for RGB colors!");
+
+        });
+        //Box that shows the error message
+        VBox errorText = new VBox();
+        errorText.getChildren().add(error);
+        errorText.setAlignment(Pos.TOP_CENTER);
+
         //vbox for the button
         VBox button = new VBox();
         button.setPadding(new Insets(5,5,5,5));
         button.setMinSize(400,100);
         button.getChildren().add(displayButton);
 
-        //Vbox for the three boxes
+        //Vbox for the Four boxes
         VBox all = new VBox();
         all.setPadding(new Insets(5,5,5,5));
         all.setMinSize(400,400);
-        all.getChildren().addAll(display,grid,displayButton);
+        all.getChildren().addAll(display,grid,errorText,displayButton);
         all.setAlignment(Pos.CENTER);
         Pane root = new Pane();
         root.getChildren().add(all);
@@ -92,15 +107,24 @@ public class ColorDisplay extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
     }
+
+    /**
+     * Method to check if the values is in bounds for RGB numbers
+     * @param r red number
+     * @param g green number
+     * @param b blue number
+     * @return true if values is in bound, else false
+     */
     private boolean valueInsideBounds(int r, int g, int b){
         int valuesInsideBounds = 0;
-        if(r <= 255 && r > 0)
+        if(r <= 255 && r >= 0)
             valuesInsideBounds++;
-        if(g <= 255 && g > 0)
+        if(g <= 255 && g >= 0)
             valuesInsideBounds++;
-        if(b <= 255 && b > 0)
+        if(b <= 255 && b >= 0)
             valuesInsideBounds++;
 
-        return valuesInsideBounds == 3;
+            return valuesInsideBounds == 3;
+
     }
 }

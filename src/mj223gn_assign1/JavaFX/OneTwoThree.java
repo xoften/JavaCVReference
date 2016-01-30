@@ -1,4 +1,4 @@
-package mj223gn_assign1;/**
+package mj223gn_assign1.JavaFX;/**
  * Created by Michael Johansson(mj223gn) on 2016-01-29.
  */
 
