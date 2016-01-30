@@ -52,6 +52,14 @@ public class SumMain {
             input.close();
         }
     }
+
+    /**
+     * Exercise 3 method that goes from 1 to n/2 + n/2+1 to n, this method is slow but can calculate
+     * large numbers for n.
+     * @param k the smallest number
+     * @param n the largest number
+     * @return sum o
+     */
     private static long sum(long k, long n){
         if(n == k)
             return n;
