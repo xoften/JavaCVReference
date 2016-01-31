@@ -7,6 +7,7 @@ import java.io.IOException;
 
 /**
  * Created by Michael Johansson(mj223gn) on 2016-01-29.
+ * Main to run our class filereader. we take in a file as an argument
  */
 public class LanguageToolMain {
 
@@ -16,10 +17,10 @@ public class LanguageToolMain {
 
             FileReader readFile = new FileReader(file);
 
-            readFile.proofRead();
+            System.out.println(readFile.proofRead());
         }
         catch (FileNotFoundException e){
-
+            System.out.println("File not found!");
         }
         catch (IOException e){
 

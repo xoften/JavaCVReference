@@ -58,9 +58,10 @@ public class SumMain {
      * large numbers for n.
      * @param k the smallest number
      * @param n the largest number
-     * @return sum o
+     * @return sum for all numbers from 1-n
      */
     private static long sum(long k, long n){
+        //base case
         if(n == k)
             return n;
         else
@@ -69,6 +70,12 @@ public class SumMain {
 
     }
 
+    /**
+     * Method Jonas showed i slides, little faster then the one for this exercise, but it cant handle as large numbers
+     * the then one above.
+     * @param n the last number
+     * @return sum of all numbers from 1 to n
+     */
     private static long sum2(long n){
         //Base case
         if(n == 1)
@@ -78,6 +85,13 @@ public class SumMain {
             return sum2(n-1) + n;
 
     }
+
+    /**
+     * Iterative method to add all numbers from 1 to n. its the fastest of all methods. but as the one Jonas showed us
+     * it cant handle very large numbers.
+     * @param n the last number
+     * @return sum of all numbers from 1-n
+     */
     private static long sumIterator(long n){
 
         int sum = 0;

@@ -10,11 +10,15 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+
 /**
  * Created by Michaels on 2016-01-29.
+ * This class creates a JavaFX stage that with different values in red,green,blue change the
+ * background color of the top panel.
  */
 public class ColorDisplay extends Application {
 
@@ -31,7 +35,7 @@ public class ColorDisplay extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         //Different text objects
-        Text error = new Text("");
+        Text error = new Text(25,25,"");
         error.setStyle("-fx-font-size: 30");
         Text colorDisplay = new Text("Color Display");
         colorDisplay.setStyle("-fx-font-size: 40");
@@ -75,12 +79,15 @@ public class ColorDisplay extends Application {
             greenColor = Integer.valueOf(greenNumber.getText());
             blueColor = Integer.valueOf(blueNumber.getText());
             if(valueInsideBounds(redColor,greenColor,blueColor)) {
+                //takes RGB values and change it to a hex value
                 hexValue = String.format("#%02x%02x%02x", redColor, greenColor, blueColor);
                 display.setStyle("-fx-background-color: " + hexValue);
                 error.setText("");
             }
             else
                 error.setText("Invalid input for RGB colors!");
+
+
 
         });
         //Box that shows the error message
@@ -104,7 +111,10 @@ public class ColorDisplay extends Application {
         root.getChildren().add(all);
 
         Scene scene = new Scene(root, 500, 400);
+        primaryStage.setTitle("Exercise 9, Color Display");
         primaryStage.setScene(scene);
+        primaryStage.sizeToScene();
+        primaryStage.setResizable(false);
         primaryStage.show();
     }
 
