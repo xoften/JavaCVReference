@@ -14,6 +14,8 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import java.awt.*;
+
 
 /**
  * Created by Michaels on 2016-01-29.
@@ -81,6 +83,7 @@ public class ColorDisplay extends Application {
             if(valueInsideBounds(redColor,greenColor,blueColor)) {
                 //takes RGB values and change it to a hex value
                 hexValue = String.format("#%02x%02x%02x", redColor, greenColor, blueColor);
+                System.out.println(hexValue);
                 display.setStyle("-fx-background-color: " + hexValue);
                 error.setText("");
             }

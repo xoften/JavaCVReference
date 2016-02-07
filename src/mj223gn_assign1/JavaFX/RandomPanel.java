@@ -23,7 +23,7 @@ public class RandomPanel extends BorderPane {
         //Text that prints out the random number
         Text numberText = new Text();
         numberText.setStyle("-fx-font-size: 300");
-        numberText.setText("");
+        numberText.setText("100");
 
         //Button that change the text when pressed
         Button random = new Button("New Random");

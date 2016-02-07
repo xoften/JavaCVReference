@@ -8,13 +8,11 @@ import java.util.Objects;
  */
 public class LinkedQueue implements Queue {
 
-    private int size;
-    private Node head;
-    private Node tail;
+    private int size = 0;
+    private Node head = null;
+    private Node tail = null;
 
-    public LinkedQueue(){
-        head = new
-    }
+
     @Override
     public int size() {
         return size;
@@ -32,9 +30,7 @@ public class LinkedQueue implements Queue {
             tail = head;
         }
         else {
-            Node node = head;
-            while (node.next != null )
-                node = node.next;
+            Node node = tail;
             node.next = new Node(element);
             tail = node.next;
         }
@@ -43,8 +39,10 @@ public class LinkedQueue implements Queue {
 
     @Override
     public Object dequeue() {
-
-       return null;
+        Node first = head;
+        head = head.next;
+        size--;
+        return first;
     }
 
     @Override
@@ -64,7 +62,8 @@ public class LinkedQueue implements Queue {
 
     @Override
     public String toString() {
-        return "";
+
+        return null;
     }
 
     private class Node {
