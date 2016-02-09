@@ -7,6 +7,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
+ * Test class for our LinkedQueue with JUnit
  * Created by Michael Johansson(mj223gn) on 2016-02-09.
  */
 public class LinkedQueueTest {
