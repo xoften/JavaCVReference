@@ -12,7 +12,7 @@ public class LinkedQueue implements Queue {
     private Node tail;
 
     /**
-     * Constructor for our linkedlist.
+     * Constructor for our linkedQueue.
      */
     public LinkedQueue(){
         size = 0;
@@ -20,28 +20,16 @@ public class LinkedQueue implements Queue {
         tail = null;
     }
 
-    /**
-     * Returns the size of the linkedlist.
-     * @return size as int.
-     */
    @Override
     public int size() {
         return size;
     }
 
-    /**
-     * Checks if the the linkedlist is empty.
-     * @return true if the list is empty or false if there is nodes in it.
-     */
     @Override
     public boolean isEmpty() {
         return size == 0;
     }
 
-    /**
-     * Adds an Object element to the linkedlist.
-     * @param element to add.
-     */
     @Override
     public void enqueue(Object element) {
         if (this.isEmpty()) {
@@ -91,7 +79,7 @@ public class LinkedQueue implements Queue {
 
     @Override
     public String toString() {
-        String out = "";
+        String out = "| ";
         if(this.isEmpty()){
             out = "The queue is empty";
             return out;
@@ -99,12 +87,15 @@ public class LinkedQueue implements Queue {
         else {
             iterator it = new iterator();
             while (it.hasNext()) {
-                out = out + it.next() + " ";
+                out = out + it.next() + ", ";
             }
-            return out;
+            return out.substring(0,out.length()-2) + " |";
         }
     }
 
+    /**
+     * Node private inner class
+     */
     private class Node {
         Object object;
         Node next = null;
@@ -113,20 +104,40 @@ public class LinkedQueue implements Queue {
             object = obj;
         }
     }
+
+    /**
+     * iterator inner class
+     */
     private class iterator implements Iterator{
 
-        Node nodes = head;
+       Node nodes = head;
 
+        /**
+         * Returns {@code true} if the iteration has more elements.
+         * (In other words, returns {@code true} if {@link #next} would
+         * return an element rather than throwing an exception.)
+         *
+         * @return {@code true} if the iteration has more elements
+         */
+        @Override
         public boolean hasNext() {
             return nodes != null;
         }
 
+        /**
+         * Returns the next element in the iteration.
+         *
+         * @return the next element in the iteration
+         * @throws NullPointerException if the iteration has no more elements
+         */
+        @Override
         public Object next() {
             Object ob = nodes.object;
             nodes = nodes.next;
             return ob;
-
         }
+
+
     }
 
 
