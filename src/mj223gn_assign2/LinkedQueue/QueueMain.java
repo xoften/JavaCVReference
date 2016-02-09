@@ -1,8 +1,9 @@
-package mj223gn_assign2;
+package mj223gn_assign2.LinkedQueue;
 
 import java.util.Iterator;
 
 /**
+ * Main program to show how our linked queue works
  * Created by Michaels on 2016-02-07.
  */
 public class QueueMain {
@@ -17,19 +18,19 @@ public class QueueMain {
         System.out.println(queue.toString());
 
         System.out.println("we add some objects to the queue");
-        queue.enqueue("hej");
+        queue.enqueue("Hej");
         queue.enqueue("Michael!");
-        queue.enqueue(3);
+        queue.enqueue(1337);
         queue.enqueue("hej då!");
-
 
         System.out.println("Size of the queue is now: "+queue.size());
 
-        System.out.println("If we use the iterator to go through the elements: ");
+        System.out.print("If we use the iterator to go through the elements: ");
         Iterator itr = queue.iterator();
         while(itr.hasNext()) {
-            System.out.println(itr.next());
+            System.out.print(itr.next()+ " ");
         }
+        System.out.println();
 
         System.out.println("If we use the toString method to print them out: " + queue.toString());
 

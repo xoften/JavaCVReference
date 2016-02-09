@@ -1,8 +1,9 @@
-package mj223gn_assign2;
+package mj223gn_assign2.LinkedQueue;
 
 import java.util.Iterator;
 
 /**
+ * LinkedQueue class with methods from our queue interface
  * Created by Michaels on 2016-02-07.
  */
 public class LinkedQueue implements Queue {
@@ -46,7 +47,7 @@ public class LinkedQueue implements Queue {
     @Override
     public Object dequeue() {
         if(this.isEmpty())
-            throw new IndexOutOfBoundsException("Cant dequeue element: Queue is empty.");
+            throw new NullPointerException("Cant dequeue element: Queue is empty.");
         Node first = head;
         head = head.next;
         size--;
@@ -56,7 +57,7 @@ public class LinkedQueue implements Queue {
     @Override
     public Object first() {
         if(this.isEmpty())
-            throw new IndexOutOfBoundsException("Cant get first element: Queue is empty.");
+            throw new NullPointerException("Cant get first element: Queue is empty.");
         else {
             return head.object;
         }
@@ -65,7 +66,7 @@ public class LinkedQueue implements Queue {
     @Override
     public Object last() {
         if(this.isEmpty())
-            throw new IndexOutOfBoundsException("Cant get last element: Queue is empty.");
+            throw new NullPointerException("Cant get last element: Queue is empty.");
         else{
             return tail.object;
         }
