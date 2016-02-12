@@ -69,4 +69,21 @@ public class LinkedQueueTest {
         //nullpointer if we try to check the first element in an empty queue
         test.first();
     }
+    @Test (expected = NullPointerException.class)
+    public void lastTest(){
+        LinkedQueue test = new LinkedQueue();
+        //nullpointer if we try to check the last element in an empty queue
+        test.last();
+    }
+    @Test
+    public void toStringTest(){
+        LinkedQueue test = new LinkedQueue();
+        test.enqueue("Hej");
+        test.enqueue("Elite");
+        test.enqueue("Haxxor");
+        test.enqueue(1337);
+        test.enqueue(new int[] {1,2,3});
+        assertEquals("| Hej, Elite, Haxxor, 1337, [I@2530c12 |",test.toString());
+    }
+
 }
