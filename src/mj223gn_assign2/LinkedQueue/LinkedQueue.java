@@ -33,10 +33,12 @@ public class LinkedQueue implements Queue {
 
     @Override
     public void enqueue(Object element) {
+        //if Queue is empty set new node to head and tail
         if (this.isEmpty()) {
             head = new Node(element);
             tail = head;
         }
+        //if there is nodes in queue we set tails next to new node
         else {
             tail.next = new Node(element);
             tail = tail.next;
@@ -46,8 +48,10 @@ public class LinkedQueue implements Queue {
 
     @Override
     public Object dequeue() {
+        //if we try to dequeue a empty queue we get an error
         if(this.isEmpty())
             throw new NullPointerException("Cant dequeue element: Queue is empty.");
+        //if there is nodes we se set a temp Node to head, then we set head to heads next. size - 1 and return temp.
         Node first = head;
         head = head.next;
         size--;
@@ -56,18 +60,22 @@ public class LinkedQueue implements Queue {
 
     @Override
     public Object first() {
+        //if we try to check a empty queue we get an error
         if(this.isEmpty())
             throw new NullPointerException("Cant get first element: Queue is empty.");
         else {
+            //returns head object without removing it
             return head.object;
         }
     }
 
     @Override
     public Object last() {
+        //if we try to check a empty queue we get an error
         if(this.isEmpty())
             throw new NullPointerException("Cant get last element: Queue is empty.");
         else{
+            //returns tail object without removing it
             return tail.object;
         }
 
@@ -96,6 +104,7 @@ public class LinkedQueue implements Queue {
 
     /**
      * Node private inner class
+     * Creates a new node and adding the object
      */
     private class Node {
         Object object;

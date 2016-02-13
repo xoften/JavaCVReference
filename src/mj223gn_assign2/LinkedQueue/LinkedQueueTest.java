@@ -25,13 +25,17 @@ public class LinkedQueueTest {
     @Test
     public void enqueueSizeTest(){
         LinkedQueue test = new LinkedQueue();
+        //add 10 numbers
         assertEquals("Size of empty queue must be 0", 0, test.size());
         for (int i = 1; i <= 10; i++){
             test.enqueue(i);
         }
+        //test so that size is correct and the first and last is 1 and 10.
         assertEquals("Size of queue with 10 objects must be 10", 10, test.size());
         assertEquals("Element at head must be 1", 1, test.first());
         assertEquals("Element at tail must be 10", 10, test.last());
+
+        //extrem test that our linkedQueue works we high numbers.
         for (int i = 11; i <= 1000000; i++ ){
             test.enqueue(i);
         }
@@ -78,12 +82,13 @@ public class LinkedQueueTest {
     @Test
     public void toStringTest(){
         LinkedQueue test = new LinkedQueue();
+        //add som objects
         test.enqueue("Hej");
         test.enqueue("Elite");
         test.enqueue("Haxxor");
         test.enqueue(1337);
-        test.enqueue(new int[] {1,2,3});
-        assertEquals("| Hej, Elite, Haxxor, 1337, [I@2530c12 |",test.toString());
+        //then we test if our toString returns the same answer
+        assertEquals("| Hej, Elite, Haxxor, 1337 |",test.toString());
     }
 
 }
