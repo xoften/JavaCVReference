@@ -1,4 +1,4 @@
-package mj223gn_assign2;
+package mj223gn_assign2.CatchTheCreature;
 
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -19,9 +19,8 @@ public class Creature extends ImageView {
     public boolean creatureGotHit() {
 
         //if this creature is hit change boolean value to true.
-        this.setOnMouseClicked(e -> {
-            hit = true;
-        });
+        this.setOnMousePressed(e -> hit = true);
+
         boolean returnHit = hit;
         hit = false;
         return returnHit;

@@ -1,4 +1,4 @@
-package mj223gn_assign2;
+package mj223gn_assign2.CatchTheCreature;
 
 import javafx.animation.FadeTransition;
 import javafx.application.Application;
@@ -11,6 +11,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+
 import java.util.Random;
 
 /**
@@ -69,7 +70,7 @@ public class CatchTheCreature extends Application {
         Scene scene = new Scene(root, 1500, 800);
 
         //when clicked on scene we call the method in creature to tell us if we clicked it.
-        scene.setOnMouseClicked(e -> {
+        scene.setOnMousePressed(e -> {
 
             //if creature is hit we add one to our counter
             if (shark.creatureGotHit())
@@ -77,6 +78,7 @@ public class CatchTheCreature extends Application {
         });
 
         fade.play();
+
         primaryStage.setTitle("Exercise 6, Catch the Creature");
         primaryStage.sizeToScene();
         primaryStage.setResizable(false);
@@ -87,6 +89,7 @@ public class CatchTheCreature extends Application {
 
     /**
      * Method to set creature on a random position
+     *
      * @param shark creature that shall be changed
      */
     public void setPosition(ImageView shark) {

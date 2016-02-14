@@ -1,4 +1,4 @@
-package mj223gn_assign2;
+package mj223gn_assign2.UpDownPane;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
@@ -14,7 +14,7 @@ public class UpDownPaneMain extends Application {
 
         UpDownPane pane = new UpDownPane();
 
-        primaryStage.setScene(pane.createPane());
+        primaryStage.setScene(pane.createScene());
         primaryStage.sizeToScene();
         primaryStage.setTitle("Exercise 5, UpDownPane");
         primaryStage.setResizable(false);
