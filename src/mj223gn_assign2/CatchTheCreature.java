@@ -72,7 +72,7 @@ public class CatchTheCreature extends Application {
         scene.setOnMouseClicked(e -> {
 
             //if creature is hit we add one to our counter
-            if (shark.sharkGotHit())
+            if (shark.creatureGotHit())
                 count.setText("Hit count: " + ++hitCount);
         });
 
