@@ -29,5 +29,24 @@ public class SortingAlgorithms {
 
         return sorted;
     }
+    public static int[] merge(int[] first, int[]second,)
 
+
+    private static void sort(int[] in) {
+
+        if (in.length <= 1)
+            return;
+
+        int[] first = new int[in.length / 2];
+        int[] second = new int[in.length - first.length];
+        for (int i = 0; i < first.length; i++) {
+            first[i] = in[i];
+        }
+        for (int i = 0; i < second.length; i++) {
+            second[i] = in[first.length + i];
+        }
+        sort(first);
+        sort(second);
+
+    }
 }
