@@ -15,7 +15,7 @@ public class sortTest {
 
     private static int run = 0;
     private static int[] intTest = new int[]{10,67,54,-76,19,56,100,48,-1,78};
-    private static String[] stringTest = new String[]{"Michael", "Mårten", "Daniel", "Patrik","", "Michael", "Peter", "Mattias"};
+    private static String[] stringTest = new String[]{"michael", "Mårten", "Daniel", "patrik","","adam" ,"Michael", "Peter", "mattias"};
 
     @Before
     public void setUp(){
@@ -47,7 +47,7 @@ public class sortTest {
         assertArrayEquals("An array with size 1 must return [100]", new int[]{100}, SortingAlgorithms.insertionSort(one));
         assertArrayEquals("Sorted array must be [-76, -1, 10, 19, 48, 54, 56, 67, 78, 100]", new int[]{-76, -1, 10, 19, 48, 54, 56, 67, 78, 100},
                 SortingAlgorithms.insertionSort(intTest));
-        System.out.println(Arrays.toString(SortingAlgorithms.insertionSort(intTest)));
+        System.out.println("Sorted test array: "+Arrays.toString(SortingAlgorithms.insertionSort(intTest)));
 
     }
     @Test
@@ -59,10 +59,10 @@ public class sortTest {
 
         assertArrayEquals("An array with size zero must return []", new String[]{}, SortingAlgorithms.insertionSort(zero));
         assertArrayEquals("An array with size one must return [Michael]", new String[]{"Michael"}, SortingAlgorithms.insertionSort(one));
-        assertArrayEquals("Sorted stringTest must be [\"\", Daniel, Mattias, Michael, Michael, Mårten, Patrik, Peter]",
-                new String[]{"", "Daniel", "Mattias", "Michael", "Michael", "Mårten", "Patrik", "Peter"},
+        assertArrayEquals("Sorted stringTest must be [\"\",adam, Daniel, mattias, michael, Michael, Mårten, Patrik, Peter]",
+                new String[]{"", "adam", "Daniel", "mattias", "michael", "Michael", "Mårten", "patrik", "Peter"},
                 SortingAlgorithms.insertionSort(stringTest));
-        System.out.println(Arrays.toString(SortingAlgorithms.insertionSort(stringTest)));
+        System.out.println("Sorted test array: "+Arrays.toString(SortingAlgorithms.insertionSort(stringTest)));
     }
     @Test
     public void intMergeSortTest(){
@@ -84,7 +84,7 @@ public class sortTest {
         assertArrayEquals("An array with size 1 must return [100]", new int[]{100}, SortingAlgorithms.mergeSort(one));
         assertArrayEquals("Sorted array must be [-76, -1, 10, 19, 48, 54, 56, 67, 78, 100]", new int[]{-76, -1, 10, 19, 48, 54, 56, 67, 78, 100},
                 SortingAlgorithms.mergeSort(intTest));
-        System.out.println(Arrays.toString(SortingAlgorithms.mergeSort(intTest)));
+        System.out.println("Sorted test array: "+Arrays.toString(SortingAlgorithms.mergeSort(intTest)));
     }
 
     @Test
@@ -96,10 +96,10 @@ public class sortTest {
 
         assertArrayEquals("An array with size zero must return []", new String[]{}, SortingAlgorithms.mergeSort(zero));
         assertArrayEquals("An array with size one must return [Michael]", new String[]{"Michael"}, SortingAlgorithms.mergeSort(one));
-        assertArrayEquals("Sorted stringTest must be [\"\", Daniel, Mattias, Michael, Michael, Mårten, Patrik, Peter]",
-                new String[]{"", "Daniel", "Mattias", "Michael", "Michael", "Mårten", "Patrik", "Peter"},
+        assertArrayEquals("Sorted stringTest must be [\"\",adam, Daniel, mattias, michael, Michael, Mårten, Patrik, Peter]",
+                new String[]{"","adam", "Daniel", "mattias", "michael", "Michael", "Mårten", "patrik", "Peter"},
                 SortingAlgorithms.mergeSort(stringTest));
-        System.out.println(Arrays.toString(SortingAlgorithms.mergeSort(stringTest)));
+        System.out.println("Sorted test array: "+Arrays.toString(SortingAlgorithms.mergeSort(stringTest)));
 
     }
     @Test

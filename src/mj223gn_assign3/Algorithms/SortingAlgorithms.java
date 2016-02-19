@@ -11,7 +11,7 @@ public class SortingAlgorithms {
     public static void main(String[] args) {
         //test arrayer
         int[] test = new int[]{96,15,-25,10000,89,1,0,78,9,-99,100,96,854};
-        String[] testString = new String[]{"Michael","Peter", "Patrik", "Michael","Peter","Adam","","Karl","Sixten","Johan"};
+        String[] testString = new String[]{"michael","Peter", "Patrik", "Michael","Peter","Adam","","Karl","michael","Sixten","Johan","adam"};
         //output
         System.out.println(Arrays.toString(insertionSort(test)));
         System.out.println(Arrays.toString(mergeSort(test)));
@@ -73,7 +73,8 @@ public class SortingAlgorithms {
             int previousIndex = i;
             // while the previous index is not zero, and while element at previous
             //index is lager then next
-            while (previousIndex > 0 && next.compareTo(sorted[previousIndex - 1])<0) {
+            while (previousIndex > 0 && next.compareToIgnoreCase(sorted[previousIndex - 1])<=0) {
+
                 //we move back the element at previous one step
                 sorted[previousIndex] = sorted[previousIndex - 1];
                 //then we reduce the previous with one.
@@ -228,19 +229,32 @@ public class SortingAlgorithms {
 
         //while the length is larger then index for each index of the arrays.
         while (firstHalf.length > indexFirst && secondHalf.length > indexSecond) {
-            //if the element of first array at index for that array is larger then the second, we set the element at index
-            //of the sorted array to the in first array. and increase the index of first by one.
-            if (firstHalf[indexFirst].compareTo(secondHalf[indexSecond])<0) {
-                sorted[indexMergedArray] = firstHalf[indexFirst];
-                indexFirst++;
+            if(firstHalf[indexFirst].toLowerCase().equals((secondHalf[indexSecond].toLowerCase()))){
+                if (firstHalf[indexFirst].compareTo(secondHalf[indexSecond])<0) {
+                    sorted[indexMergedArray] = firstHalf[indexFirst];
+                    indexFirst++;
+                }
+                //else we put the element in the second array into the sorted array.
+                else {
+                    sorted[indexMergedArray] = secondHalf[indexSecond];
+                    indexSecond++;
+                }
+                indexMergedArray++;
+            }else {
+                //if the element of first array at index for that array is larger then the second, we set the element at index
+                //of the sorted array to the in first array. and increase the index of first by one.
+                if (firstHalf[indexFirst].compareToIgnoreCase(secondHalf[indexSecond]) < 0) {
+                    sorted[indexMergedArray] = firstHalf[indexFirst];
+                    indexFirst++;
+                }
+                //else we put the element in the second array into the sorted array.
+                else {
+                    sorted[indexMergedArray] = secondHalf[indexSecond];
+                    indexSecond++;
+                }
+                //then we add one to the index of sorted array.
+                indexMergedArray++;
             }
-            //else we put the element in the second array into the sorted array.
-            else {
-                sorted[indexMergedArray] = secondHalf[indexSecond];
-                indexSecond++;
-            }
-            //then we add one to the index of sorted array.
-            indexMergedArray++;
         }
         //then we just add the left over numbers. if one array is larger then the other we get one number left
         //so its here we add that.
