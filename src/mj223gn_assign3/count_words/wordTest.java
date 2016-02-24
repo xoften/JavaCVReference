@@ -6,6 +6,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
+ * Test class for our Word
  * Created by Michael Johansson(mj223gn) on 2016-02-24.
  */
 public class wordTest {
@@ -21,6 +22,7 @@ public class wordTest {
 
     @Test
     public void Word(){
+
         Word first = new Word("first");
         Word First = new Word("First");
         Word zero = new Word("");

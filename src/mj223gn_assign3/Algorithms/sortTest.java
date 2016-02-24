@@ -19,11 +19,11 @@ public class sortTest {
 
     @Before
     public void setUp(){
-        System.out.println("Running wordTest method: " +(++run));
+        System.out.println("Running sortTest method: " +(++run));
     }
     @After
     public void tearDown(){
-        System.out.println("Done with wordTest " +run + "\n");
+        System.out.println("Done with sortTest " +run + "\n");
 
     }
 
