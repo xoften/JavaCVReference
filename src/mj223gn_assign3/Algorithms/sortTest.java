@@ -19,11 +19,11 @@ public class sortTest {
 
     @Before
     public void setUp(){
-        System.out.println("Running test method: " +(++run));
+        System.out.println("Running wordTest method: " +(++run));
     }
     @After
     public void tearDown(){
-        System.out.println("Done with test " +run + "\n");
+        System.out.println("Done with wordTest " +run + "\n");
 
     }
 
@@ -47,7 +47,7 @@ public class sortTest {
         assertArrayEquals("An array with size 1 must return [100]", new int[]{100}, SortingAlgorithms.insertionSort(one));
         assertArrayEquals("Sorted array must be [-76, -1, 10, 19, 48, 54, 56, 67, 78, 100]", new int[]{-76, -1, 10, 19, 48, 54, 56, 67, 78, 100},
                 SortingAlgorithms.insertionSort(intTest));
-        System.out.println("Sorted test array: "+Arrays.toString(SortingAlgorithms.insertionSort(intTest)));
+        System.out.println("Sorted wordTest array: "+Arrays.toString(SortingAlgorithms.insertionSort(intTest)));
 
     }
     @Test
@@ -69,7 +69,7 @@ public class sortTest {
         assertArrayEquals("Sorted stringTest must be [\"\",adam, Daniel, mattias, michael, Michael, Mårten, Patrik, Peter]",
                 new String[]{"", "adam", "Daniel", "mattias", "Michael", "michael", "Mårten", "patrik", "Peter"},
                 SortingAlgorithms.insertionSort(stringTest));
-        System.out.println("Sorted test array: "+Arrays.toString(SortingAlgorithms.insertionSort(stringTest)));
+        System.out.println("Sorted wordTest array: "+Arrays.toString(SortingAlgorithms.insertionSort(stringTest)));
     }
     @Test
     public void intMergeSortTest(){
@@ -91,7 +91,7 @@ public class sortTest {
         assertArrayEquals("An array with size 1 must return [100]", new int[]{100}, SortingAlgorithms.mergeSort(one));
         assertArrayEquals("Sorted array must be [-76, -1, 10, 19, 48, 54, 56, 67, 78, 100]", new int[]{-76, -1, 10, 19, 48, 54, 56, 67, 78, 100},
                 SortingAlgorithms.mergeSort(intTest));
-        System.out.println("Sorted test array: "+Arrays.toString(SortingAlgorithms.mergeSort(intTest)));
+        System.out.println("Sorted wordTest array: "+Arrays.toString(SortingAlgorithms.mergeSort(intTest)));
     }
 
     @Test
@@ -114,7 +114,7 @@ public class sortTest {
         assertArrayEquals("Sorted stringTest must be [\"\",adam, Daniel, mattias, michael, Michael, Mårten, Patrik, Peter]",
                 new String[]{"","adam", "Daniel", "mattias", "Michael", "michael", "Mårten", "patrik", "Peter"},
                 SortingAlgorithms.mergeSort(stringTest));
-        System.out.println("Sorted test array: "+Arrays.toString(SortingAlgorithms.mergeSort(stringTest)));
+        System.out.println("Sorted wordTest array: "+Arrays.toString(SortingAlgorithms.mergeSort(stringTest)));
 
     }
     @Test
