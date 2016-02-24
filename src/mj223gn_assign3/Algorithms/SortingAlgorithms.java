@@ -9,7 +9,7 @@ import java.util.Arrays;
 public class SortingAlgorithms {
 
     public static void main(String[] args) {
-        //test arrayer
+        //wordTest arrayer
         int[] test = new int[]{96,15,-25,10000,89,1,0,78,9,-99,100,96,854};
         String[] testString = new String[]{"michael","Peter", "Patrik", "Michael","Peter","Adam","","Karl","michael","Sixten","Johan","adam"};
         //output
@@ -17,7 +17,7 @@ public class SortingAlgorithms {
         System.out.println(Arrays.toString(mergeSort(test)));
         System.out.println(Arrays.toString(insertionSort(testString)));
         System.out.println(Arrays.toString(mergeSort(testString)));
-        //test so we dont change start array.
+        //wordTest so we dont change start array.
         System.out.println(Arrays.toString((test)));
         System.out.println(Arrays.toString(testString));
     }

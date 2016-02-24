@@ -21,7 +21,7 @@ public class ArrayQueueMain {
         System.out.println(queue.first());
         System.out.println(queue.last());
 
-        System.out.println("ToString test: "+queue.toString());
+        System.out.println("ToString wordTest: "+queue.toString());
 
         for (int i = 0; i < 5; i++){
             queue.dequeue();
@@ -31,7 +31,7 @@ public class ArrayQueueMain {
         while(itr.hasNext())
             System.out.println(itr.next());
 
-        System.out.println("ToString test: " + queue.toString());
+        System.out.println("ToString wordTest: " + queue.toString());
 
         System.out.println("See that resize work: "+ queue.getLength());
     }

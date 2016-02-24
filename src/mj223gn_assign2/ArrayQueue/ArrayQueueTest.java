@@ -10,7 +10,7 @@ import java.util.NoSuchElementException;
 import static org.junit.Assert.assertEquals;
 
 /**
- * Hann inte fixa mer med dessa test dock.....
+ * Hann inte fixa mer med dessa wordTest dock.....
  * Created by Michaels on 2016-02-14.
  */
 public class ArrayQueueTest {
@@ -18,11 +18,11 @@ public class ArrayQueueTest {
 
     @Before
     public void setUp(){
-        System.out.print("Running test method: " +(++run));
+        System.out.print("Running wordTest method: " +(++run));
     }
     @After
     public void tearDown(){
-        System.out.println(" ----------- done with test " +run);
+        System.out.println(" ----------- done with wordTest " +run);
     }
 
     @Test
@@ -33,12 +33,12 @@ public class ArrayQueueTest {
         for (int i = 0; i < 10; i++){
             test.enqueue(i);
         }
-        //test so that size is correct and the first and last is 1 and 10.
+        //wordTest so that size is correct and the first and last is 1 and 10.
         assertEquals("Size of queue with 10 objects must be 10", 10, test.size());
         assertEquals("Element at head must be 0", 0, test.first());
         assertEquals("Element at tail must be 9", 9, test.last());
 
-        //extrem test that our linkedQueue works we high numbers.
+        //extrem wordTest that our linkedQueue works we high numbers.
         for (int i = 11; i <= 1000000; i++ ){
             test.enqueue(i);
         }
@@ -87,7 +87,7 @@ public class ArrayQueueTest {
         test.enqueue("Elite");
         test.enqueue("Haxxor");
         test.enqueue(1337);
-        //then we test if our toString returns the same answer
+        //then we wordTest if our toString returns the same answer
         assertEquals("| Hej Elite Haxxor 1337 |",test.toString());
     }
 

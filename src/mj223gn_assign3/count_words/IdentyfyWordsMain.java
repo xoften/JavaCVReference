@@ -28,7 +28,8 @@ public class IdentyfyWordsMain {
                         writer.print(next);
                     }
                 }
-                writer.println();
+                if(line.length() != 0)
+                    writer.println();
             }
             reader.close();
             writer.close();
