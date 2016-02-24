@@ -56,11 +56,18 @@ public class sortTest {
         String[] zero = new String[0];
         //array with size 1
         String[] one = new String[]{"Michael"};
+        //array to check that it sorts case sensitive
+        String[] same = new String[]{"michael","Michael", "Michael", "michael", "michael", "michael", "Michael"};
 
         assertArrayEquals("An array with size zero must return []", new String[]{}, SortingAlgorithms.insertionSort(zero));
         assertArrayEquals("An array with size one must return [Michael]", new String[]{"Michael"}, SortingAlgorithms.insertionSort(one));
+
+        //case sensitive
+        assertArrayEquals("An array with the same string should be sorted case sensitive",
+                new String[]{"Michael","Michael","Michael","michael","michael","michael","michael"},SortingAlgorithms.mergeSort(same));
+
         assertArrayEquals("Sorted stringTest must be [\"\",adam, Daniel, mattias, michael, Michael, Mårten, Patrik, Peter]",
-                new String[]{"", "adam", "Daniel", "mattias", "michael", "Michael", "Mårten", "patrik", "Peter"},
+                new String[]{"", "adam", "Daniel", "mattias", "Michael", "michael", "Mårten", "patrik", "Peter"},
                 SortingAlgorithms.insertionSort(stringTest));
         System.out.println("Sorted test array: "+Arrays.toString(SortingAlgorithms.insertionSort(stringTest)));
     }
@@ -93,11 +100,19 @@ public class sortTest {
         String[] zero = new String[0];
         //array with size 1
         String[] one = new String[]{"Michael"};
+        //array to check that it sorts case sensitive
+        String[] same = new String[]{"michael","Michael", "Michael", "michael", "michael", "michael", "Michael"};
 
         assertArrayEquals("An array with size zero must return []", new String[]{}, SortingAlgorithms.mergeSort(zero));
         assertArrayEquals("An array with size one must return [Michael]", new String[]{"Michael"}, SortingAlgorithms.mergeSort(one));
+
+        //case sensitive
+        assertArrayEquals("An array with the same string should be sorted case sensitive",
+                new String[]{"Michael","Michael","Michael","michael","michael","michael","michael"},SortingAlgorithms.mergeSort(same));
+
+        //test the test array
         assertArrayEquals("Sorted stringTest must be [\"\",adam, Daniel, mattias, michael, Michael, Mårten, Patrik, Peter]",
-                new String[]{"","adam", "Daniel", "mattias", "michael", "Michael", "Mårten", "patrik", "Peter"},
+                new String[]{"","adam", "Daniel", "mattias", "Michael", "michael", "Mårten", "patrik", "Peter"},
                 SortingAlgorithms.mergeSort(stringTest));
         System.out.println("Sorted test array: "+Arrays.toString(SortingAlgorithms.mergeSort(stringTest)));
 

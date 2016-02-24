@@ -11,7 +11,7 @@ public class SortingAlgorithms {
     public static void main(String[] args) {
         //test arrayer
         int[] test = new int[]{96,15,-25,10000,89,1,0,78,9,-99,100,96,854};
-        String[] testString = new String[]{"michael","Peter", "Patrik", "Michael","Peter","Adam","","Karl","michael","Sixten","Johan","adam"};
+        String[] testString = new String[]{"michael","Peter", "Patrik", "Michael","peter","Adam","","Karl","michael","Sixten","Johan","adam","Michael"};
         //output
         System.out.println(Arrays.toString(insertionSort(test)));
         System.out.println(Arrays.toString(mergeSort(test)));
@@ -73,8 +73,7 @@ public class SortingAlgorithms {
             int previousIndex = i;
             // while the previous index is not zero, and while element at previous
             //index is lager then next
-            while (previousIndex > 0 && next.compareToIgnoreCase(sorted[previousIndex - 1])<=0) {
-
+            while (previousIndex > 0 && compare(next,sorted[previousIndex-1])<0 ) {
                 //we move back the element at previous one step
                 sorted[previousIndex] = sorted[previousIndex - 1];
                 //then we reduce the previous with one.
@@ -229,21 +228,9 @@ public class SortingAlgorithms {
 
         //while the length is larger then index for each index of the arrays.
         while (firstHalf.length > indexFirst && secondHalf.length > indexSecond) {
-            if(firstHalf[indexFirst].toLowerCase().equals((secondHalf[indexSecond].toLowerCase()))){
-                if (firstHalf[indexFirst].compareTo(secondHalf[indexSecond])<0) {
-                    sorted[indexMergedArray] = firstHalf[indexFirst];
-                    indexFirst++;
-                }
-                //else we put the element in the second array into the sorted array.
-                else {
-                    sorted[indexMergedArray] = secondHalf[indexSecond];
-                    indexSecond++;
-                }
-                indexMergedArray++;
-            }else {
                 //if the element of first array at index for that array is larger then the second, we set the element at index
                 //of the sorted array to the in first array. and increase the index of first by one.
-                if (firstHalf[indexFirst].compareToIgnoreCase(secondHalf[indexSecond]) < 0) {
+                if (compare(firstHalf[indexFirst],secondHalf[indexSecond]) < 0) {
                     sorted[indexMergedArray] = firstHalf[indexFirst];
                     indexFirst++;
                 }
@@ -254,7 +241,6 @@ public class SortingAlgorithms {
                 }
                 //then we add one to the index of sorted array.
                 indexMergedArray++;
-            }
         }
         //then we just add the left over numbers. if one array is larger then the other we get one number left
         //so its here we add that.
@@ -269,4 +255,22 @@ public class SortingAlgorithms {
             indexMergedArray++;
         }
     }
+
+    /**
+     * Inner class to use to compare two Strings, we have this to use the compareTo only when
+     * the two Strings is equal when we ignore the case sensitive.
+     * @param a String one
+     * @param b String two
+     * @return if ignoreCase is equal return CompareTo else return ignoreCase value.
+     */
+    private static int compare(String a, String b){
+        if(a.compareToIgnoreCase(b) == 0){
+            return a.compareTo(b);
+        }
+        else {
+            return a.compareToIgnoreCase(b);
+        }
+
+    }
+
 }
