@@ -1,6 +1,7 @@
 package mj223gn_assign3.count_words;
 
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 /**
  * Created by Michael Johansson(mj223gn) on 2016-02-25.
@@ -89,46 +90,48 @@ public class HashWordSet implements WordSet {
             stringWord = w.toString();
         }
     }
-    private class iterator implements Iterator<Word>{
+    private class iterator implements Iterator{
 
-        int index = 0;
-        Node node = buckets[index];
+        private int index;
+        private Node node;
 
-        /**
-         * Returns {@code true} if the iteration has more elements.
-         * (In other words, returns {@code true} if {@link #next} would
-         * return an element rather than throwing an exception.)
-         *
-         * @return {@code true} if the iteration has more elements
-         */
+        public iterator(){
+
+            node = null;
+            index = -1;
+        }
+
         @Override
         public boolean hasNext() {
-            while (index < size){
+            if(node != null && node.next != null){
                 return true;
+            }
+            for (int i = index + 1; i < buckets.length; i++){
+                if (buckets[i] != null){
+                    return true;
+                }
             }
 
             return false;
         }
 
-        /**
-         * Returns the next element in the iteration.
-         *
-         * @return the next element in the iteration
-         * @throws NoSuchElementException if the iteration has no more elements
-         */
         @Override
-        public Word next() {
-            Word word = node.word;
+        public String next() {
 
-            if(node.next == null){
-
-                index++;
-
-            }
-            else {
+            if(node != null && node.next != null){
                 node = node.next;
             }
-            return word;
+            else{
+                do {
+                    index++;
+                    if (index == buckets.length) {
+                        throw new NoSuchElementException();
+                    }
+                    node = buckets[index];
+                }
+                while(node == null);
+            }
+            return node.stringWord;
         }
     }
 }

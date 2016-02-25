@@ -25,12 +25,13 @@ public class test {
         set.add(new Word("ej"));
         set.add(new Word("d"));
         set.add(new Word("kall"));
+        System.out.println(set.size());
 
         System.out.println(set.contains(new Word("hej")));
 
         Iterator itr = set.iterator();
         while (itr.hasNext())
-            System.out.println(itr.next().toString());
+            System.out.println(itr.next());
 
         System.out.println(set.size());
     }
