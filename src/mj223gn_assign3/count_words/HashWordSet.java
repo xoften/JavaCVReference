@@ -21,7 +21,7 @@ public class HashWordSet implements WordSet {
         int hashKey = w.hashCode() % buckets.length;
         Node node = buckets[hashKey];
         while(node != null){
-            if(node.stringWord.equals(w.toString())){
+            if(node.word.equals(w)){
                 return;
             }
             else node = node.next;
