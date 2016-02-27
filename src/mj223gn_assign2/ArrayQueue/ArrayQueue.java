@@ -160,11 +160,11 @@ public class ArrayQueue implements Queue {
         }
 
         /**
-         * Returns the next element in the iteration.
-         *
-         * @return the next element in the iteration
-         * @throws NullPointerException if the iteration has no more elements
-         */
+                * Returns the next element in the iteration.
+        *
+                * @return the next element in the iteration
+        * @throws NullPointerException if the iteration has no more elements
+        */
         @Override
         public Object next() {
             Object out = queue[next];

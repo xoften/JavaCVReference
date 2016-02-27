@@ -49,8 +49,10 @@ public class test {
         reader.close();
         System.out.println("The size of the hashSet is: " + set.size());
 
-//        Iterator itr = set.iterator();
-//        while (itr.hasNext())
-//            System.out.println(itr.next());
+        Iterator itr = set.iterator();
+        while (itr.hasNext()) {
+            System.out.println(itr.next());
+        }
+
     }
 }

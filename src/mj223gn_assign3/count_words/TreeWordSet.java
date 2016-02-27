@@ -1,7 +1,7 @@
 package mj223gn_assign3.count_words;
 
+import java.util.Arrays;
 import java.util.Iterator;
-import java.util.NoSuchElementException;
 
 /**
  * Created by Michaels on 2016-02-26.
@@ -10,6 +10,9 @@ public class TreeWordSet implements WordSet {
 
     private int size;
     private Node start;
+    private Node[] array;
+
+
 
     public TreeWordSet() {
 
@@ -40,7 +43,7 @@ public class TreeWordSet implements WordSet {
 
     @Override
     public Iterator iterator() {
-        return null;
+        return new iterator();
     }
 
     private class Node {
@@ -72,38 +75,25 @@ public class TreeWordSet implements WordSet {
             }
 
         }
-        private class iterator implements Iterator{
 
-            private Node node;
+    }
 
-            public iterator(){
-                node = start;
+    private class iterator implements Iterator {
 
-            }
+        private Node[]
 
-            @Override
-            public boolean hasNext() {
-                return (node != null);
-            }
-            @Override
-            public Object next() {
-                String out = "";
-                if(node == null){
-                    throw new NoSuchElementException();
-                }
-                out = node.word.toString();
-                if (node.left != null){
-                    node = node.left;
-                }
-                else if(node.right != null){
-                    node = node.right;
-                }
-                else {
-                    Node parent = node.p
-                }
-            }
+        public iterator() {
+
+
+        @Override
+        public boolean hasNext() {
+            return false;
         }
 
+        @Override
+        public Object next() {
 
+            return false;
+        }
     }
 }
