@@ -1,6 +1,5 @@
 package mj223gn_assign3.count_words;
 
-import java.util.Arrays;
 import java.util.Iterator;
 
 /**
@@ -10,9 +9,8 @@ public class TreeWordSet implements WordSet {
 
     private int size;
     private Node start;
-    private Node[] array;
-
-
+    private static Word[] array;
+    private static int index = 0;
 
     public TreeWordSet() {
 
@@ -33,7 +31,7 @@ public class TreeWordSet implements WordSet {
 
     @Override
     public boolean contains(Word word) {
-        return false;
+            return start.contains(word);
     }
 
     @Override
@@ -43,6 +41,8 @@ public class TreeWordSet implements WordSet {
 
     @Override
     public Iterator iterator() {
+        array = new Word[size];
+        start.toArray();
         return new iterator();
     }
 
@@ -58,14 +58,14 @@ public class TreeWordSet implements WordSet {
         }
 
         public void add(Word w) {
-            if (word.compareTo(w) < 0) {
+            if (word.compareTo(w) > 0) {
                 if (left == null) {
                     left = new Node(w);
                     size++;
                 } else {
                     left.add(w);
                 }
-            } else if (word.compareTo(w) > 0) {
+            } else if (word.compareTo(w) < 0) {
                 if (right == null) {
                     right = new Node(w);
                     size++;
@@ -76,24 +76,55 @@ public class TreeWordSet implements WordSet {
 
         }
 
+        public boolean contains(Word w) {
+            if (word.compareTo(w) > 0) {
+                if (left == null) {
+                    return false;
+                } else {
+                    left.contains(w);
+                }
+            }
+            else if (word.compareTo(w) < 0) {
+                if (right == null) {
+                    return false;
+                } else {
+                    right.contains(w);
+                }
+            }
+            return true;
+
+        }
+
+        public void toArray() {
+            if (left != null) {
+                left.toArray();
+            }
+            array[index] = word;
+            index++;
+            if (right != null) {
+                right.toArray();
+            }
+        }
+
+
     }
 
     private class iterator implements Iterator {
 
-        private Node[]
-
-        public iterator() {
-
+        private int i = 0;
 
         @Override
         public boolean hasNext() {
-            return false;
+            return i != array.length;
         }
 
         @Override
-        public Object next() {
-
-            return false;
+        public String next() {
+            String out = array[i].toString();
+            i++;
+            return out;
         }
     }
+
+
 }

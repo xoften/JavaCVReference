@@ -14,7 +14,7 @@ public class QueueMain {
 
         System.out.println("Is our new LinkedQueue empty?: "+queue.isEmpty());
 
-        System.out.print("If the queue is empty and we want to print it out we get: ");
+        System.out.print("If the queue is empty and we want to toArray it out we get: ");
         System.out.println(queue.toString());
 
         System.out.println("we add some objects to the queue");
@@ -32,7 +32,7 @@ public class QueueMain {
         }
         System.out.println();
 
-        System.out.println("If we use the toString method to print them out: " + queue.toString());
+        System.out.println("If we use the toString method to toArray them out: " + queue.toString());
 
         System.out.println("We check the first element: " + queue.first() + " and the last element: " + queue.last());
 

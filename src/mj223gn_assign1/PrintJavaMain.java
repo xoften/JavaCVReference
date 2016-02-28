@@ -29,7 +29,7 @@ public class PrintJavaMain {
     private static int indent = 1;
 
     /**
-     * Recursive method to print out all .java files. if the file is a directory move done that catalog
+     * Recursive method to toArray out all .java files. if the file is a directory move done that catalog
      * @param start start file as input
      * @throws IOException
      */
@@ -44,7 +44,7 @@ public class PrintJavaMain {
                 indent++;
                 printAllJavaFiles(f);
             }
-            //if its a file check if it ends with .java, if so we print it out
+            //if its a file check if it ends with .java, if so we toArray it out
             else if (f.isFile()) {
                 if (f.getName().endsWith(".java")) {
                     printFile(f);
@@ -57,8 +57,8 @@ public class PrintJavaMain {
     }
 
     /**
-     * Method to print a file
-     * @param file file to print
+     * Method to toArray a file
+     * @param file file to toArray
      * @throws IOException
      */
     private static void printFile(File file) throws IOException {
@@ -67,7 +67,7 @@ public class PrintJavaMain {
         for (int i = 0; i < indent; i++) {
             print.append("  ");
         }
-        //if file ends with .java print it out we number of rows in the file, else just print the file name
+        //if file ends with .java toArray it out we number of rows in the file, else just toArray the file name
         if (file.getName().endsWith(".java"))
             System.out.println(print.toString() + file.getName() + "size = " + numberOfRows(file) + " rows");
         else

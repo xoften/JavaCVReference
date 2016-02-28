@@ -27,7 +27,7 @@ public interface WordSet extends Iterable {
     int size();
 
     /**
-     * method to print out String in Word
+     * method to toArray out String in Word
      * @return string of contained words
      */
     String toString();
