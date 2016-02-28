@@ -70,11 +70,34 @@ public class TreeWordSet implements WordSet {
      */
     @Override
     public Iterator iterator() {
-        //sets the size of the array
-        array = new Word[size];
+        //only create a new array if we have elements in the tree
+        if (size != 0){
+            //sets the size of the array
+            array = new Word[size];
         //calls the to array method
         start.toArray();
+        index = 0;
+    }
         return new iterator();
+    }
+    /**
+     * To String method that uses iterator to go through the set
+     * @return a String of the set
+     */
+    @Override
+    public String toString(){
+        Iterator itr = this.iterator();
+
+        String out = "The elements in this TreeSet is: \n";
+        if(size == 0)
+            out = "The TreeSet is empty!";
+        else{
+            while(itr.hasNext()){
+                out += itr.next() + "\n";
+            }
+        }
+        index = 0;
+        return out;
     }
 
     /**
@@ -159,7 +182,6 @@ public class TreeWordSet implements WordSet {
                 right.toArray();
             }
         }
-
 
     }
 

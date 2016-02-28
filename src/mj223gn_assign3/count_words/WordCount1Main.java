@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.util.*;
 
 /**
+ * We use treeSet and hashSet from java library on our words.txt
  * Created by Michael Johansson(mj223gn) on 2016-02-24.
  */
 public class WordCount1Main {

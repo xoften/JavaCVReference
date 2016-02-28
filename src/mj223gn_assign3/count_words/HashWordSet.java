@@ -104,6 +104,24 @@ public class HashWordSet implements WordSet {
     }
 
     /**
+     * To String method that uses iterator to go through the set
+     * @return a String of the set
+     */
+    @Override
+    public String toString(){
+        String out = "The elements in this HashSet is: \n";
+        Iterator itr = this.iterator();
+        if(size == 0)
+            out = "The HashSet is empty!";
+        else{
+           while(itr.hasNext()){
+               out += itr.next() + "\n";
+           }
+        }
+        return out;
+    }
+
+    /**
      * private inner class node to hold a Word and its contained word.
      * also contains the next node.
      */
