@@ -23,10 +23,14 @@ public class wordTest {
     @Test
     public void Word(){
 
+        //We create some words to test.
+        //test case sensitive.
         Word first = new Word("first");
         Word First = new Word("First");
+        //test a empty word
         Word zero = new Word("");
         Word second = new Word("second");
+        //test a long "Word"
         Word large = new Word("Hej jag heter michael johansson och är 24 år, jag bor i växjö och pluggar nätverkssäkerhet");
 
         assertEquals("Word first toString should be \"first\" ", "first", first.toString());

@@ -55,6 +55,7 @@ public class EuclideanAlgorithm {
             b = c;
 
         }
+        //return absolute value to always get a positive GCD
         return Math.abs(a);
     }
 }
