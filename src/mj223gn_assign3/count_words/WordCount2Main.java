@@ -19,6 +19,7 @@ public class WordCount2Main {
         TreeWordSet test = new TreeWordSet();
         HashWordSet test2 = new HashWordSet();
 
+
         //Take in a file as argument
         File file = new File(args[0]);
         Scanner reader = new Scanner(file);
@@ -30,7 +31,6 @@ public class WordCount2Main {
         }
 
         reader.close();
-
 
         System.out.println("Se if both set contains 'a': " +hashSet.contains(new Word("a")) + " and " + treeSet.contains(new Word("a")));
 
