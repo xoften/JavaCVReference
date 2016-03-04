@@ -19,6 +19,8 @@ public class WordCount2Main {
         TreeWordSet test = new TreeWordSet();
         HashWordSet test2 = new HashWordSet();
 
+
+        //Take in a file as argument
         File file = new File(args[0]);
         Scanner reader = new Scanner(file);
 

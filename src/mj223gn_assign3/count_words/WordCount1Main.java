@@ -25,6 +25,8 @@ public class WordCount1Main {
         }
 
         reader.close();
+
+
         System.out.println("The size of the hashSet is: " +hashSet.size());
         System.out.println("The size of the treeSet is: " +treeSet.size());
 

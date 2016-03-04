@@ -13,10 +13,6 @@ public class TreeWordSet implements WordSet {
     private int size;
     //root node
     private Node start;
-    //array of tree
-    private static Word[] array;
-    //index of array
-    private static int index = 0;
 
     /**
      * Constructor of our treeSet
@@ -70,14 +66,6 @@ public class TreeWordSet implements WordSet {
      */
     @Override
     public Iterator iterator() {
-        //only create a new array if we have elements in the tree
-        if (size != 0){
-            //sets the size of the array
-            array = new Word[size];
-        //calls the to array method
-        start.toArray();
-        index = 0;
-    }
         return new iterator();
     }
     /**
@@ -96,7 +84,6 @@ public class TreeWordSet implements WordSet {
                 out += itr.next() + "\n";
             }
         }
-        index = 0;
         return out;
     }
 
@@ -141,7 +128,6 @@ public class TreeWordSet implements WordSet {
             }
 
         }
-
         /**
          * Method to check if the word is in our tree
          * @param w word to check
@@ -168,21 +154,6 @@ public class TreeWordSet implements WordSet {
 
         }
 
-        /**
-         * Method to add our tree to our array. we do this by recursion in-order.
-         */
-        public void toArray() {
-            //go to the most left then add the word.
-            if (left != null) {
-                left.toArray();
-            }
-            array[index] = word;
-            index++;
-            if (right != null) {
-                right.toArray();
-            }
-        }
-
     }
 
     /**
@@ -190,20 +161,50 @@ public class TreeWordSet implements WordSet {
      */
     private class iterator implements Iterator {
 
-        private int i = 0;
+        //array of tree
+        private Word[] array;
+        //index of array
+        private int index;
+
+        //when we create an iterator we create a new array where we put in all elements
+        //in the tree
+        public iterator(){
+            array = new Word[size];
+            index = 0;
+
+            if(size != 0) {
+                this.toArray(start);
+            }
+            index = 0;
+        }
+
+        /**
+         * Method to input all elements to an array so we can iterate over them
+         * @param node start node.
+         */
+        public void toArray(Node node) {
+            //go to the most left then add the word.
+            if (node.left != null) {
+                this.toArray(node.left);
+            }
+            array[index++] = node.word;
+            if (node.right != null) {
+                this.toArray(node.right);
+            }
+        }
 
         @Override
         public boolean hasNext() {
-            return i != array.length;
+            return index != array.length;
         }
 
         @Override
         public String next() {
-            String out = array[i].toString();
-            i++;
+            String out = array[index++].toString();
             return out;
         }
     }
+
 
 
 }
