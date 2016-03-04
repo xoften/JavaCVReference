@@ -5,40 +5,43 @@ import java.util.Iterator;
 /**
  * Created by Michaels on 2016-03-04.
  */
-public class LinkedQueue<T> implements Queue<T>{
+public class LinkedQueue<T> implements Queue<T> {
 
     private int size;
     private Node head;
     private Node tail;
+
+    public LinkedQueue() {
+        size = 0;
+        head = null;
+        tail = null;
+    }
 
     public int size() {
         return size;
     }
 
     public boolean isEmpty() {
-        if(size() == 0) {
-            return true;
-        }
-        return false;
+        return size == 0;
     }
 
+    @Override
     public void enqueue(T t) {
-        if(isEmpty()){
+        if (isEmpty()) {
             head = new Node(t);
             tail = head;
-        }
-        else{
+        } else {
             tail.next = new Node(t);
             tail = tail.next;
         }
         size++;
     }
 
+    @Override
     public T dequeue() {
-        if(isEmpty()){
+        if (isEmpty()) {
             throw new NullPointerException("Cant dequeue, queue is empty!");
-        }
-        else {
+        } else {
             T out = head.element;
             head = head.next;
             size--;
@@ -66,28 +69,36 @@ public class LinkedQueue<T> implements Queue<T>{
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         StringBuilder sb = new StringBuilder();
-        Iterator itr = this.iterator();
-            while(itr.hasNext()){
+        sb.append("[");
+        if (isEmpty()) {
+            return "Queue is empty!";
+        } else {
+            Iterator itr = this.iterator();
+            while (itr.hasNext()) {
                 sb.append(itr.next());
+                sb.append(", ");
             }
-        return sb.toString();
+            return sb.toString().substring(0, sb.length() - 2) + "]";
+        }
     }
+
     @Override
     public Iterator iterator() {
         return new iterator();
     }
 
-    private class Node{
+    private class Node {
         private Node next;
         private T element;
 
-        Node(T t){
+        Node(T t) {
             next = null;
             element = t;
         }
     }
+
     private class iterator implements Iterator {
 
         Node nodes = head;
