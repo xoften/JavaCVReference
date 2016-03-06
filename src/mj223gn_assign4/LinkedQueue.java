@@ -27,10 +27,13 @@ public class LinkedQueue<T> implements Queue<T> {
 
     @Override
     public void enqueue(T t) {
+        //if Queue is empty set new node to head and tail
         if (isEmpty()) {
             head = new Node(t);
             tail = head;
-        } else {
+        }
+        //else set new node to tails next
+        else{
             tail.next = new Node(t);
             tail = tail.next;
         }
@@ -39,9 +42,12 @@ public class LinkedQueue<T> implements Queue<T> {
 
     @Override
     public T dequeue() {
+        //if empty throw exception
         if (isEmpty()) {
             throw new NullPointerException("Cant dequeue, queue is empty!");
-        } else {
+        }
+        //else remove and return first element in queue.
+        else {
             T out = head.element;
             head = head.next;
             size--;
@@ -50,6 +56,7 @@ public class LinkedQueue<T> implements Queue<T> {
     }
 
     public T first() {
+        //if empty throw exception
         if (this.isEmpty())
             throw new NullPointerException("Cant get first element: Queue is empty.");
         else {
@@ -59,11 +66,11 @@ public class LinkedQueue<T> implements Queue<T> {
     }
 
     public T last() {
-        //if we try to check a empty queue we get an error
+        //if empty throw exception
         if (this.isEmpty())
             throw new NullPointerException("Cant get last element: Queue is empty.");
         else {
-            //returns tail object without removing it
+            //returns tail element without removing it
             return tail.element;
         }
     }
@@ -89,6 +96,9 @@ public class LinkedQueue<T> implements Queue<T> {
         return new iterator();
     }
 
+    /**
+     * inner Node class
+     */
     private class Node {
         private Node next;
         private T element;
@@ -98,7 +108,9 @@ public class LinkedQueue<T> implements Queue<T> {
             element = t;
         }
     }
-
+    /**
+     * iterator inner class
+     */
     private class iterator implements Iterator {
 
         Node nodes = head;

@@ -132,10 +132,19 @@ public class QueueTest {
         assertEquals("next must throw exception on an empty iterator", itr.next());
 
         test.enqueue(1);
+        test.enqueue(2);
+        test.enqueue(3);
+        test.enqueue(4);
         itr = test.iterator();
 
         assertEquals("hasNext must be true", true, itr.hasNext());
         assertEquals("next must return 1", 1, itr.next());
+        assertEquals("hasNext must be true", true, itr.hasNext());
+        assertEquals("next must return 2", 2, itr.next());
+        assertEquals("hasNext must be true", true, itr.hasNext());
+        assertEquals("next must return 3", 3, itr.next());
+        assertEquals("hasNext must be true", true, itr.hasNext());
+        assertEquals("next must return 4", 4, itr.next());
         assertEquals("next must throw exception on an empty iterator", itr.next());
     }
 }
