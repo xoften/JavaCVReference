@@ -78,15 +78,19 @@ public class LinkedQueue<T> implements Queue<T> {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("[");
+        //if empty we return a message
         if (isEmpty()) {
             return "Queue is empty!";
-        } else {
+        }
+        //else we use a iterator to add each element to the stringbuilder
+        else {
+            sb.append("[");
             Iterator itr = this.iterator();
             while (itr.hasNext()) {
                 sb.append(itr.next());
                 sb.append(", ");
             }
+            //return the stringbuilder as a string, removing the 2 last chars
             return sb.toString().substring(0, sb.length() - 2) + "]";
         }
     }
@@ -111,7 +115,7 @@ public class LinkedQueue<T> implements Queue<T> {
     /**
      * iterator inner class
      */
-    private class iterator implements Iterator {
+    private class iterator implements Iterator<T> {
 
         Node nodes = head;
 
