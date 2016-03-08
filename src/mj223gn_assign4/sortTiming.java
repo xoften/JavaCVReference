@@ -47,8 +47,8 @@ public class sortTiming {
             time += ((end - start) / 1000000);
 
         }
-        System.out.println(time/numberOfRuns);
-        System.out.println(array.length);
+        System.out.println("Time for Int insertion: " + time/numberOfRuns);
+        System.out.println("Length of sorted array: "+array.length);
     }
     public static void mergeSortIntTest(int numberOfRuns, int[] array){
         int time = 0;
@@ -59,8 +59,8 @@ public class sortTiming {
             time += ((end - start) / 1000000);
 
         }
-        System.out.println(time/numberOfRuns);
-        System.out.println(array.length);
+        System.out.println("Time for Int mergeSort: " + time/numberOfRuns);
+        System.out.println("Length of sorted array: "+array.length);
     }
     public static void insertionSortStringTest(int numberOfRuns, String[] array) {
         int time = 0;
@@ -71,8 +71,8 @@ public class sortTiming {
             time += ((end - start) / 1000000);
 
         }
-        System.out.println(time/numberOfRuns);
-        System.out.println(array.length);
+        System.out.println("Time for String insertion: " + time/numberOfRuns);
+        System.out.println("Length of sorted array: "+array.length);
     }
     public static void mergeSortStringTest(int numberOfRuns, String[] array){
         int time = 0;
@@ -83,8 +83,8 @@ public class sortTiming {
             time += ((end - start) / 1000000);
 
         }
-        System.out.println(time/numberOfRuns);
-        System.out.println(array.length);
+        System.out.println("Time for String mergeSort: " + time/numberOfRuns);
+        System.out.println("Length of sorted array: "+array.length);
     }
 
 }

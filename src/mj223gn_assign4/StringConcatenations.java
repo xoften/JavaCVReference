@@ -6,9 +6,9 @@ package mj223gn_assign4;
 public class StringConcatenations {
 
     public static void main(String[] args) {
-        shortConcatenation();
-        longConcatenation();
-        shortStringBuilder();
+        //shortConcatenation();
+        //longConcatenation();
+        //shortStringBuilder();
         longStringBuilder();
 
     }

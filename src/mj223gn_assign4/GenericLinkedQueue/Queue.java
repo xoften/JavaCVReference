@@ -1,4 +1,4 @@
-package mj223gn_assign4;
+package mj223gn_assign4.GenericLinkedQueue;
 
 import java.util.Iterator;
 
