@@ -14,16 +14,16 @@ public class StringConcatenations {
     }
 
     public static void shortConcatenation() {
-        String out = "";
-        final long start = System.nanoTime();
-        for (int j = 0; j < 35000; j++) {
-            out += "y";
+            String out = "";
+            final long start = System.nanoTime();
+            for (int j = 0; j < 35000; j++) {
+                out += "y";
+            }
+            final long end = System.nanoTime();
+            System.out.println("Time is: " + (end - start) / 1000000 + " ms");
+            System.out.println("Number of chars in string: " + out.length());
+            System.out.println("Number of iterations: " + out.length());
         }
-        final long end = System.nanoTime();
-        System.out.println("Time is: " + (end - start) / 1000000 + " ms");
-        System.out.println("Number of chars in string: " + out.length());
-        System.out.println("Number of iterations: "+ out.length());
-    }
 
     public static void longConcatenation() {
         String out = "";
