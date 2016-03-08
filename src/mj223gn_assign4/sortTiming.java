@@ -39,51 +39,51 @@ public class sortTiming {
         return array;
     }
     public static void insertionSortIntTest(int numberOfRuns, int[] array) {
-        int time = 0;
+        double time = 0;
         for (int i = 0; i < numberOfRuns; i++) {
             final long start = System.nanoTime();
             SortingAlgorithms.insertionSort(array);
             final long end = System.nanoTime();
-            time += ((end - start) / 1000000);
+            time += ((end - start) / 1000000000.0);
 
         }
-        System.out.println("Time for Int insertion: " + time/numberOfRuns);
+        System.out.printf("Time for int insertionSort: %.3f\n", time/numberOfRuns);
         System.out.println("Length of sorted array: "+array.length);
     }
     public static void mergeSortIntTest(int numberOfRuns, int[] array){
-        int time = 0;
+        double time = 0;
         for (int i = 0; i < numberOfRuns; i++) {
             final long start = System.nanoTime();
             SortingAlgorithms.mergeSort(array);
             final long end = System.nanoTime();
-            time += ((end - start) / 1000000);
+            time += ((end - start) / 1000000000.0);
 
         }
-        System.out.println("Time for Int mergeSort: " + time/numberOfRuns);
+        System.out.printf("Time for int mergeSort: %.3f\n", time/numberOfRuns);
         System.out.println("Length of sorted array: "+array.length);
     }
     public static void insertionSortStringTest(int numberOfRuns, String[] array) {
-        int time = 0;
+        double time = 0;
         for (int i = 0; i < numberOfRuns; i++) {
             final long start = System.nanoTime();
             SortingAlgorithms.insertionSort(array);
             final long end = System.nanoTime();
-            time += ((end - start) / 1000000);
+            time += ((end - start) / 1000000000.0);
 
         }
-        System.out.println("Time for String insertion: " + time/numberOfRuns);
+        System.out.printf("Time for String insertionSort: %.3f\n", time/numberOfRuns);
         System.out.println("Length of sorted array: "+array.length);
     }
     public static void mergeSortStringTest(int numberOfRuns, String[] array){
-        int time = 0;
+        double time = 0;
         for (int i = 0; i < numberOfRuns; i++) {
             final long start = System.nanoTime();
             SortingAlgorithms.mergeSort(array);
             final long end = System.nanoTime();
-            time += ((end - start) / 1000000);
+            time += ((end - start) / 1000000000.0);
 
         }
-        System.out.println("Time for String mergeSort: " + time/numberOfRuns);
+        System.out.printf("Time for String mergeSort: %.3f\n", time/numberOfRuns);
         System.out.println("Length of sorted array: "+array.length);
     }
 

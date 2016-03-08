@@ -51,17 +51,18 @@ public class StringConcatenations {
     }
 
     public static void longStringBuilder() {
-        StringBuilder out = new StringBuilder();
-        final long start = System.nanoTime();
-        for (int j = 0; j < 4299999; j++) {
-            out.append("yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy");
+        for (int i = 0; i < 10; i++) {
+            StringBuilder out = new StringBuilder();
+            final long start = System.nanoTime();
+            for (int j = 0; j < 4299999; j++) {
+                out.append("yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy");
+            }
+            out.toString();
+            final long end = System.nanoTime();
+            System.out.println("Time is: " + (end - start) / 1000000 + " ms");
+            System.out.println("Number of chars in string: " + out.toString().length());
+            System.out.println("Number of iterations: " + (out.length() / 80));
         }
-        out.toString();
-        final long end = System.nanoTime();
-        System.out.println("Time is: " + (end - start) / 1000000 + " ms");
-        System.out.println("Number of chars in string: " + out.toString().length());
-        System.out.println("Number of iterations: "+(out.length()/80));
     }
-
 
 }
