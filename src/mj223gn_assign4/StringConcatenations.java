@@ -17,6 +17,7 @@ public class StringConcatenations {
     }
 
     /**
+     *
      * Method to take time on a short concatenation
      * @param iterations number of times to add a string
      */
