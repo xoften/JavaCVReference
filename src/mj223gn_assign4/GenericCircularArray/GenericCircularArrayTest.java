@@ -12,7 +12,7 @@ import static org.junit.Assert.assertEquals;
 /**
  * Created by Michael Johansson(mj223gn) on 2016-03-08.
  */
-public class GenericCircelarArrayTest {
+public class GenericCircularArrayTest {
     private static int run = 0;
 
     @Before
