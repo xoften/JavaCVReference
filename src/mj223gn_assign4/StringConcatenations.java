@@ -10,7 +10,7 @@ public class StringConcatenations {
     public static void main(String[] args) {
         //run them one by one to get a cold start of the JVM
         //shortConcatenation(38800);
-        longConcatenation(4600);
+        //longConcatenation(4600);
         //shortStringBuilder(96000000);
         longStringBuilder(4100000);
 

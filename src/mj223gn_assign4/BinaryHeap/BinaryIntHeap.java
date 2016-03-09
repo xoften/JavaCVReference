@@ -18,8 +18,6 @@ public class BinaryIntHeap {
 
     }
     public void insert(int n) {
-        if()
-
         binaryHeap[last] = new Node(n);
         last++;
         percolationUp();
