@@ -9,38 +9,40 @@ public class sortTiming {
 
     public static void main(String[] args) {
 
-        insertionSortIntTest(10, createIntArray(111000));
+        insertionSortIntTest(10, createIntArray(117000));
         mergeSortIntTest(10, createIntArray(7200000));
-        insertionSortStringTest(10, createStringArray(11000));
-        mergeSortStringTest(10, createStringArray(1000000));
+        insertionSortStringTest(10, createStringArray(13000));
+        mergeSortStringTest(10, createStringArray(1300000));
     }
 
     /**
      * Method to create an array of random Integers
+     *
      * @param n size of array
      * @return array with random Integers
      */
-    public static int[] createIntArray(int n){
+    public static int[] createIntArray(int n) {
         Random random = new Random();
         int[] array = new int[n];
-        for (int i = 0; i < n; i++){
-            array[i] = random.nextInt(n*2);
+        for (int i = 0; i < n; i++) {
+            array[i] = random.nextInt(n * 2);
         }
         return array;
     }
 
     /**
      * Method to create an array of random Strings with 10 random chars
+     *
      * @param n size of array
      * @return array with random Strings
      */
-    public static String[] createStringArray(int n){
+    public static String[] createStringArray(int n) {
         Random random = new Random();
         String[] array = new String[n];
-        for (int i = 0; i < n; i++){
+        for (int i = 0; i < n; i++) {
             String out = "";
-            for (int j = 0; j < 10; j++){
-                int cha = random.nextInt(25)+97;
+            for (int j = 0; j < 10; j++) {
+                int cha = random.nextInt(25) + 97;
                 out += (char) cha;
             }
             array[i] = out;
@@ -50,8 +52,9 @@ public class sortTiming {
 
     /**
      * Test our insertionSort on an array with random Integers
+     *
      * @param numberOfRuns how many times to sort the array
-     * @param array the array to sort
+     * @param array        the array to sort
      */
     public static void insertionSortIntTest(int numberOfRuns, int[] array) {
         double time = 0.0;
@@ -61,19 +64,20 @@ public class sortTiming {
             SortingAlgorithms.insertionSort(array);
             //set a end time
             final long end = System.nanoTime();
-            time += ((end - start) / 1000000000);
+            time += (end - start);
         }
-
-        System.out.println("Time for Int insertion: " + time/numberOfRuns);
-        System.out.println("Length of sorted array: "+array.length);
+        double average = (time / 1000000000.0) / numberOfRuns;
+        System.out.printf("Time for int insertionSort: %.3f\n", average);
+        System.out.println("Length of sorted array: " + array.length);
     }
 
     /**
      * Test our mergeSort on an array of random Integers
+     *
      * @param numberOfRuns how many times to sort the array
-     * @param array the array to sort
+     * @param array        the array to sort
      */
-    public static void mergeSortIntTest(int numberOfRuns, int[] array){
+    public static void mergeSortIntTest(int numberOfRuns, int[] array) {
         double time = 0;
         for (int i = 0; i < numberOfRuns; i++) {
             //set a start time
@@ -81,17 +85,18 @@ public class sortTiming {
             SortingAlgorithms.mergeSort(array);
             //set a end time
             final long end = System.nanoTime();
-            time += ((end - start) / 1000000000);
-
+            time += (end - start);
         }
-        System.out.println("Time for Int mergeSort: " + time/numberOfRuns);
-        System.out.println("Length of sorted array: "+array.length);
+        double average = (time / 1000000000.0) / numberOfRuns;
+        System.out.printf("Time for int mergeSort: %.3f\n", average);
+        System.out.println("Length of sorted array: " + array.length);
     }
 
     /**
      * Test our insertionSort on an array of random Strings
+     *
      * @param numberOfRuns how many times to sort the array
-     * @param array the array to sort
+     * @param array        the array to sort
      */
     public static void insertionSortStringTest(int numberOfRuns, String[] array) {
         double time = 0;
@@ -101,18 +106,21 @@ public class sortTiming {
             SortingAlgorithms.insertionSort(array);
             //set a end time
             final long end = System.nanoTime();
-            time += ((end - start) / 1000000000);
+            time += (end - start);
 
         }
-        System.out.println("Time for String insertion: " + time/numberOfRuns);
-        System.out.println("Length of sorted array: "+array.length);
+        double average = (time / 1000000000.0) / numberOfRuns;
+        System.out.printf("Time for String insertionSort: %.3f\n", average);
+        System.out.println("Length of sorted array: " + array.length);
     }
+
     /**
      * Test our mergeSort on an array of random Strings
+     *
      * @param numberOfRuns how many times to sort the array
-     * @param array the array to sort
+     * @param array        the array to sort
      */
-    public static void mergeSortStringTest(int numberOfRuns, String[] array){
+    public static void mergeSortStringTest(int numberOfRuns, String[] array) {
         double time = 0;
         for (int i = 0; i < numberOfRuns; i++) {
             //set a start time
@@ -120,11 +128,12 @@ public class sortTiming {
             SortingAlgorithms.mergeSort(array);
             //set a end time
             final long end = System.nanoTime();
-            time += ((end - start) / 1000000000);
+            time += (end - start);
 
         }
-        System.out.println("Time for String mergeSort: " + time/numberOfRuns);
-        System.out.println("Length of sorted array: "+array.length);
+        double average = (time / 1000000000.0) / numberOfRuns;
+        System.out.printf("Time for String mergeSort: %.3f\n", average);
+        System.out.println("Length of sorted array: " + array.length);
     }
 
 }

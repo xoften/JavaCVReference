@@ -9,10 +9,10 @@ public class StringConcatenations {
 
     public static void main(String[] args) {
         //run them one by one to get a cold start of the JVM
-        //shortConcatenation(37000);
-        //longConcatenation(4500);
-        //shortStringBuilder(90000000);
-        longStringBuilder(4100000);
+        //shortConcatenation(39000);
+        //longConcatenation(4200);
+        //shortStringBuilder(110000000);
+        longStringBuilder(4299161);
 
     }
 
@@ -31,7 +31,7 @@ public class StringConcatenations {
         }
         //sets a end time
         final long end = System.nanoTime();
-        System.out.printf("Time is: %.2f s\n", (end - start) / NANO_IN_ONE_SEC);
+        System.out.printf("Time is: %.3f s\n", (end - start) / NANO_IN_ONE_SEC);
         System.out.println("Number of chars in string: " + out.length());
         System.out.println("Number of iterations: " + out.length());
     }
@@ -50,7 +50,7 @@ public class StringConcatenations {
         }
         //sets a end time
         final long end = System.nanoTime();
-        System.out.printf("Time is: %.2f s\n", (end - start) / NANO_IN_ONE_SEC);
+        System.out.printf("Time is: %.3f s\n", (end - start) / NANO_IN_ONE_SEC);
         System.out.println("Number of chars in string: " + out.length());
         System.out.println("Number of iterations: " + (out.length() / 80));
     }
@@ -70,7 +70,7 @@ public class StringConcatenations {
         out.toString();
         //sets a end time
         final long end = System.nanoTime();
-        System.out.printf("Time is: %.2f s\n", (end - start) / NANO_IN_ONE_SEC);
+        System.out.printf("Time is: %.3f s\n", (end - start) / NANO_IN_ONE_SEC);
         System.out.println("Number of chars in string: " + out.toString().length());
         System.out.println("Number of iterations: " + out.length());
     }
@@ -90,7 +90,7 @@ public class StringConcatenations {
         out.toString();
         //sets a end time
         final long end = System.nanoTime();
-        System.out.printf("Time is: %.2f s\n", (end - start) / NANO_IN_ONE_SEC);
+        System.out.printf("Time is: %.3f s\n", (end - start) / NANO_IN_ONE_SEC);
         System.out.println("Number of chars in string: " + out.toString().length());
         System.out.println("Number of iterations: " + (out.length() / 80));
     }
