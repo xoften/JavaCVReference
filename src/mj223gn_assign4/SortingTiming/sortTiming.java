@@ -9,10 +9,10 @@ public class sortTiming {
 
     public static void main(String[] args) {
 
-        insertionSortIntTest(10, createIntArray(111000));
-        mergeSortIntTest(10, createIntArray(7200000));
-        insertionSortStringTest(10, createStringArray(11000));
-        mergeSortStringTest(10, createStringArray(1000000));
+        //insertionSortIntTest(10, createIntArray(111000));
+        //mergeSortIntTest(10, createIntArray(7200000));
+        insertionSortStringTest(10, createStringArray(11400));
+       // mergeSortStringTest(10, createStringArray(1000000));
     }
 
     /**
@@ -24,7 +24,7 @@ public class sortTiming {
         Random random = new Random();
         int[] array = new int[n];
         for (int i = 0; i < n; i++){
-            array[i] = random.nextInt(n*2);
+            array[i] = random.nextInt(n*5);
         }
         return array;
     }
@@ -40,7 +40,7 @@ public class sortTiming {
         for (int i = 0; i < n; i++){
             String out = "";
             for (int j = 0; j < 10; j++){
-                int cha = random.nextInt(25)+97;
+                int cha = random.nextInt(58)+65;
                 out += (char) cha;
             }
             array[i] = out;
@@ -61,9 +61,9 @@ public class sortTiming {
             SortingAlgorithms.insertionSort(array);
             //set a end time
             final long end = System.nanoTime();
-            time += ((end - start) / 1000000000);
+            time += ((end - start) / 1000000000.0);
         }
-
+        ;
         System.out.println("Time for Int insertion: " + time/numberOfRuns);
         System.out.println("Length of sorted array: "+array.length);
     }
@@ -81,7 +81,7 @@ public class sortTiming {
             SortingAlgorithms.mergeSort(array);
             //set a end time
             final long end = System.nanoTime();
-            time += ((end - start) / 1000000000);
+            time += ((end - start) / 1000000000.0);
 
         }
         System.out.println("Time for Int mergeSort: " + time/numberOfRuns);
@@ -101,7 +101,7 @@ public class sortTiming {
             SortingAlgorithms.insertionSort(array);
             //set a end time
             final long end = System.nanoTime();
-            time += ((end - start) / 1000000000);
+            time += ((end - start) / 1000000000.0);
 
         }
         System.out.println("Time for String insertion: " + time/numberOfRuns);
@@ -120,7 +120,7 @@ public class sortTiming {
             SortingAlgorithms.mergeSort(array);
             //set a end time
             final long end = System.nanoTime();
-            time += ((end - start) / 1000000000);
+            time += ((end - start) / 1000000000.0);
 
         }
         System.out.println("Time for String mergeSort: " + time/numberOfRuns);

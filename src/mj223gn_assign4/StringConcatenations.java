@@ -9,9 +9,9 @@ public class StringConcatenations {
 
     public static void main(String[] args) {
         //run them one by one to get a cold start of the JVM
-        //shortConcatenation(37000);
-        //longConcatenation(4500);
-        //shortStringBuilder(90000000);
+        //shortConcatenation(38800);
+        longConcatenation(4600);
+        //shortStringBuilder(96000000);
         longStringBuilder(4100000);
 
     }
