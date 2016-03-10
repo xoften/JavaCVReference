@@ -6,24 +6,17 @@ package mj223gn_assign4.BinaryHeap;
  */
 public class BinaryIntHeap {
 
-    private Node[] binaryHeap;
+    private int[] binaryHeap;
     private int size;
-    private int last;
 
     public BinaryIntHeap(){
 
-        binaryHeap = new Node[10];
+        binaryHeap = new int[10];
         size = 0;
-        last = 1;
 
     }
     public void insert(int n) {
-        binaryHeap[last] = new Node(n);
-        last++;
-        percolationUp();
-        if(last == binaryHeap.length){
-            resize();
-        }
+
     }
     public int pullHighest(){
         return 0;
@@ -38,18 +31,9 @@ public class BinaryIntHeap {
 
     }
     private void percolationUp(){
-        while(binaryHeap[last].value > binaryHeap[last/2].value && last/2 != 1){
-            Node temp = binaryHeap[last/2];
-            binaryHeap[last/2] = binaryHeap[last];
-            binaryHeap[last] = temp;
-        }
+
     }
-    private class Node{
+    private class Node {
 
-        private int value;
-
-        public Node(int n){
-            this.value = n;
-        }
     }
 }
