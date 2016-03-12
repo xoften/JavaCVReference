@@ -10,6 +10,7 @@ import static org.junit.Assert.*;
 
 
 /**
+ * Test program to test our binaryIntHeap
  * Created by Michael Johansson(mj223gn) on 2016-03-11.
  */
 public class BinaryIntHeapTest {
