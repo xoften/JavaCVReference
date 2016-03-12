@@ -20,7 +20,6 @@ public class BinaryIntHeap {
         size = 0;
 
     }
-
     /**
      * Insert a Integer into the array at the position of the last element.
      * Then call percolationUp to check if the value is larger the its parent, if so change position.
@@ -122,35 +121,56 @@ public class BinaryIntHeap {
     }
 
     /**
-     *
+     * private method that bubble up the inserted value to its spot i the heap.
      */
     private void percolationUp() {
+        //index of the inserted element
         int index = size;
+        //variable to store the element while we swap places
         int temp;
+        //the index we want to swap with
         int parent;
+        //while the inserted value is larger then its parent and the index is larger then the first position of the heap.
         while (binaryHeap[index] > binaryHeap[calculateParent(index)] && index > 1) {
+            //swap places with the parent
             temp = binaryHeap[index];
+            //call the method to calculate the parent index.
             parent = calculateParent(index);
             binaryHeap[index] = binaryHeap[parent];
             binaryHeap[parent] = temp;
+            //update the index between iterations
             index = parent;
         }
     }
 
     /**
-     *
+     * private method to move an element down the heap.
      */
     private void percolationDown() {
+        //start at our first index
         int index = 1;
+        //variable to store right child value
         int rightChild;
+        //variable to store left child value
         int leftChild;
+        //variable to store our element between swaps
         int temp;
+        //set the last element at the top of the heap
         binaryHeap[index] = binaryHeap[size];
+        //sets the last element to zero
         binaryHeap[size] = 0;
+        //reduce the size by one
         size--;
-        while (calculateRight(index) <= binaryHeap.length && (binaryHeap[index] < binaryHeap[calculateLeft(index)] || binaryHeap[index] < binaryHeap[calculateRight(index)])) {
+
+        //While left child is not out of bound and the element at index i smaller the either its left or right child,
+        //we change the positions of the largest child and the parent.
+        //"very long ugly loop head..."
+        while (calculateLeft(index) <= binaryHeap.length && (binaryHeap[index] < binaryHeap[calculateLeft(index)] || binaryHeap[index] < binaryHeap[calculateRight(index)])) {
+            //we calculate the children indexes
             rightChild = calculateRight(index);
             leftChild = calculateLeft(index);
+
+            //if the left child is the largest of the child we swap the left child and the parent else the right child.
             if (binaryHeap[leftChild] > binaryHeap[rightChild]) {
                 temp = binaryHeap[index];
                 binaryHeap[index] = binaryHeap[leftChild];

@@ -85,6 +85,10 @@ public class BinaryIntHeapTest {
         test.insert(1);
 
         assertEquals("isEmpty on test heap must return false", false, test.isEmpty());
+
+        test.pullHighest();
+
+        assertEquals("isEmpty on an empty heap must return true", true, test.isEmpty());
     }
 
 }
