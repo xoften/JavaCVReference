@@ -3,6 +3,7 @@ package mj223gn_assign4.GenericLinkedQueue;
 import java.util.Iterator;
 
 /**
+ * An linkedQueue implementation with generic class
  * Created by Michaels on 2016-03-04.
  */
 public class LinkedQueue<T> implements Queue<T> {

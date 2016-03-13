@@ -5,6 +5,7 @@ import mj223gn_assign4.GenericLinkedQueue.Queue;
 import java.util.Iterator;
 
 /**
+ * An circular array based implementation for an queue with generic elements
  * Created by Michael Johansson(mj223gn) on 2016-03-08.
  */
 public class GenericCircularArrayBased<T> implements Queue<T>{
@@ -106,7 +107,7 @@ public class GenericCircularArrayBased<T> implements Queue<T>{
 
     /**
      * iterates over the objects in queue
-     * @return iterats over objects
+     * @return iterates over objects
      */
     @Override
     public Iterator iterator() {

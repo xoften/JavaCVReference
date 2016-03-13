@@ -89,7 +89,6 @@ public class SortingAlgorithms {
     /**
      * Merge sort algorithm. That clones our array and calls our private methods
      * I have taken inspiration from the book.
-     *
      * @param in array to sort
      * @return new sorted array.
      */

@@ -32,6 +32,7 @@ public class BinaryIntHeapTest {
         test.insert(7);
         test.insert(15);
 
+        //we test so 15 moves up to the parent
         assertEquals("The heap must be [15, 3, 7]","[15, 3, 7]", test.toString());
 
         test.insert(18);
@@ -46,6 +47,7 @@ public class BinaryIntHeapTest {
         test.insert(8);
         test.insert(25);
 
+        //we check so out heap is correct
         assertEquals("The heap must be [35, 21, 25, 15, 11, 18, 9, 3, 14, 1, 8, 7]","[35, 21, 25, 15, 11, 18, 9, 3, 14, 1, 8, 7]", test.toString());
 
         }
@@ -62,6 +64,7 @@ public class BinaryIntHeapTest {
         test.insert(19);
         test.insert(7);
 
+        //we test so the elemet comes out in the right order
         assertEquals("First out must be 19", 19, test.pullHighest());
         assertEquals("Next must be 15", 15, test.pullHighest());
         assertEquals("Next must be 13", 13, test.pullHighest());
@@ -70,24 +73,32 @@ public class BinaryIntHeapTest {
     public void sizeTest(){
         BinaryIntHeap test = new BinaryIntHeap();
 
+        //check so the size is 0 on an empty heap
         assertEquals("Size on empty heap must be 0", 0, test.size());
 
+        //test that the size is 1 after we insert an element
         test.insert(1);
         assertEquals("Size on test heap must be 1", 1, test.size());
 
+        for (int i = 1; i < 100;i++ ){
+            test.insert(1);
+        }
+        //check so the size is 100
+        assertEquals("the new size must be 100", 100, test.size());
     }
     @Test
     public void isEmptyTest(){
         BinaryIntHeap test = new BinaryIntHeap();
 
+        //test isEmpty on an empty heap
         assertEquals("isEmpty on an empty heap must return true", true, test.isEmpty());
 
         test.insert(1);
-
+        //test isEmpty on an heap with an element
         assertEquals("isEmpty on test heap must return false", false, test.isEmpty());
 
         test.pullHighest();
-
+        //test heap again after we remove the element
         assertEquals("isEmpty on an empty heap must return true", true, test.isEmpty());
     }
 

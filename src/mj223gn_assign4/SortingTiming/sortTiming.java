@@ -8,6 +8,7 @@ import java.util.Random;
 public class sortTiming {
 
     public static void main(String[] args) {
+        //running each method 10 times alone.
 
         insertionSortIntTest(10, createIntArray(111000));
         //mergeSortIntTest(10, createIntArray(7200000));
