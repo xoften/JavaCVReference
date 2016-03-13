@@ -3,6 +3,7 @@ package mj223gn_assign4.SortingTiming;
 import java.util.Random;
 
 /**
+ * Program that tests the timings on our sorting methods
  * Created by Michaels on 2016-03-07.
  */
 public class sortTiming {

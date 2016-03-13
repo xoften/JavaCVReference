@@ -1,6 +1,7 @@
 package mj223gn_assign4;
 
 /**
+ * Program to test the difference between StringBuilder and String concatenations with the + operator.
  * Created by Michael Johansson(mj223gn) on 2016-03-07.
  */
 public class StringConcatenations {
