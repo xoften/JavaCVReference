@@ -3,6 +3,7 @@ package mj223gn_assign4.GenericLinkedQueue;
 import java.util.Iterator;
 
 /**
+ * Generic Queue interface
  * Created by Michaels on 2016-03-04.
  */
 public interface Queue<T> {

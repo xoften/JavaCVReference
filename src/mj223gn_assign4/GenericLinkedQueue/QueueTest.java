@@ -9,6 +9,7 @@ import java.util.Iterator;
 import static org.junit.Assert.assertEquals;
 
 /**
+ * JUnit test for our Generic LinkedQueue
  * Created by Michaels on 2016-03-04.
  */
 public class QueueTest {

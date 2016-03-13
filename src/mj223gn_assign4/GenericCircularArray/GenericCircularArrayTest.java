@@ -10,6 +10,7 @@ import java.util.Iterator;
 import static org.junit.Assert.assertEquals;
 
 /**
+ * JUnit test on our circular array based queue
  * Created by Michael Johansson(mj223gn) on 2016-03-08.
  */
 public class GenericCircularArrayTest {
